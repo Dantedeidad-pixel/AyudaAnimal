@@ -1,0 +1,1182 @@
+/* =========================================
+   🐾 AYUDA ANIMAL — DISEÑO Y2K
+   ========================================= */
+
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8e8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---------- ENCABEZADO ---------- */
+
+header {
+    background: #ffffff;
+    border-bottom: 3px solid #222;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #8b5cf6;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 8px 13px;
+    border-radius: 20px;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    background: #cbe9ff;
+    transform: rotate(-2deg);
+}
+
+/* ---------- BOTONES ---------- */
+
+button,
+.btn {
+    border: 3px solid #222;
+    border-radius: 18px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s ease;
+    box-shadow: 4px 4px 0 #222;
+}
+
+button:hover,
+.btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 #222;
+}
+
+#ubicacion {
+    background: #8b5cf6;
+    color: white;
+}
+
+header .btn {
+    background: #f05aa6;
+    color: white;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 570px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background:
+        radial-gradient(circle at 10% 20%, #ffd6e7 0 80px, transparent 81px),
+        radial-gradient(circle at 90% 80%, #cdefd6 0 100px, transparent 101px),
+        #fff8e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "✦  🐾  ★  ♡  ✦";
+    position: absolute;
+    top: 25px;
+    right: 8%;
+    font-size: 1.5rem;
+    color: #f05aa6;
+    letter-spacing: 12px;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    margin-bottom: 25px;
+    color: #8b5cf6;
+    text-shadow: 4px 4px 0 #ffd6e7;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    background: #cbe9ff;
+    color: #222;
+}
+
+.hero-buttons .btn:hover {
+    background: #cdefd6;
+}
+
+/* ---------- IMAGEN / ILUSTRACIÓN DEL HERO ---------- */
+
+.hero-image {
+    min-width: 300px;
+    width: 380px;
+    height: 330px;
+    background: #ffd6e7;
+    border: 4px solid #222;
+    border-radius: 45% 55% 50% 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    transform: rotate(3deg);
+    box-shadow: 10px 10px 0 #8b5cf6;
+    position: relative;
+}
+
+.hero-image::before {
+    content: "ADOPTA • AYUDA • CUIDA";
+    position: absolute;
+    bottom: 18px;
+    background: #fff;
+    border: 3px solid #222;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+/* ---------- SECCIONES ---------- */
+
+section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: auto;
+    color: #555;
+}
+
+/* ---------- CÓMO FUNCIONA ---------- */
+
+.como-funciona {
+    background: #cbe9ff;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.step {
+    background: #fff;
+    border: 3px solid #222;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 7px 7px 0 #8b5cf6;
+    transition: 0.2s ease;
+}
+
+.step:nth-child(2) {
+    box-shadow: 7px 7px 0 #f05aa6;
+}
+
+.step:nth-child(3) {
+    box-shadow: 7px 7px 0 #4f9d69;
+}
+
+.step:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* ---------- FORMAS DE AYUDAR ---------- */
+
+.formas-ayudar {
+    background: #fff8e8;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.help-card {
+    min-height: 260px;
+    padding: 30px;
+    border: 3px solid #222;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.2s ease;
+}
+
+.help-card:hover {
+    transform: translateY(-8px);
+}
+
+.help-card:nth-child(1) {
+    background: #ffd6e7;
+    box-shadow: 7px 7px 0 #f05aa6;
+}
+
+.help-card:nth-child(2) {
+    background: #cdefd6;
+    box-shadow: 7px 7px 0 #4f9d69;
+}
+
+.help-card:nth-child(3) {
+    background: #cbe9ff;
+    box-shadow: 7px 7px 0 #8b5cf6;
+}
+
+.help-card .icon {
+    font-size: 3rem;
+}
+
+.help-card h3 {
+    font-size: 1.7rem;
+    margin: 10px 0;
+}
+
+.help-card p {
+    color: #444;
+}
+
+.help-card a {
+    margin-top: 20px;
+    color: #222;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+/* ---------- ANIMALES ---------- */
+
+.animales {
+    background: #f5eaff;
+}
+
+#resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.animal {
+    background: white;
+    border: 3px solid #222;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 6px 6px 0 #f05aa6;
+    transition: 0.2s ease;
+}
+
+.animal:nth-child(even) {
+    box-shadow: 6px 6px 0 #8b5cf6;
+}
+
+.animal:hover {
+    transform: translateY(-7px) rotate(1deg);
+}
+
+.animal h3 {
+    color: #8b5cf6;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.animal p {
+    margin: 7px 0;
+}
+
+.animal button {
+    background: #cdefd6;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* ---------- MENSAJE CUANDO NO HAY RESULTADOS ---------- */
+
+#resultados:empty::before {
+    content: "📍 Pulsa “Encontrar ayuda cerca de mí” para buscar animales cerca de ti.";
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    background: white;
+    border: 3px dashed #8b5cf6;
+    border-radius: 25px;
+    padding: 30px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ---------- LLAMADO A LA ACCIÓN ---------- */
+
+.cta {
+    background: #8b5cf6;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: "🐾";
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.08;
+    left: 5%;
+    top: -40px;
+}
+
+.cta::after {
+    content: "★";
+    position: absolute;
+    font-size: 10rem;
+    opacity: 0.08;
+    right: 8%;
+    bottom: -50px;
+}
+
+.cta h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+}
+
+.cta p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    font-size: 1.1rem;
+}
+
+.cta .btn {
+    background: #ffd6e7;
+    color: #222;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 50px 7% 25px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+footer h3,
+footer h4 {
+    margin-bottom: 15px;
+}
+
+footer h3 {
+    color: #ffd6e7;
+    font-size: 1.5rem;
+}
+
+footer p {
+    color: #ccc;
+    max-width: 400px;
+}
+
+footer a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin: 8px 0;
+}
+
+footer a:hover {
+    color: #ffd6e7;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    margin-top: 35px;
+    padding-top: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ---------- EFECTOS DECORATIVOS ---------- */
+
+.card {
+    position: relative;
+}
+
+.card::after {
+    content: "✦";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #f05aa6;
+    font-size: 1.3rem;
+}
+
+/* ---------- RESPONSIVE: TABLETS ---------- */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 320px;
+        height: 280px;
+    }
+
+    .steps,
+    .help-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- RESPONSIVE: CELULARES ---------- */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 9px;
+    }
+
+    header .btn {
+        display: none;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 70px 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        min-width: 240px;
+        width: 250px;
+        height: 220px;
+        font-size: 4rem;
+    }
+
+    .hero-image::before {
+        font-size: 0.65rem;
+    }
+
+    button,
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    footer p {
+        margin: auto;
+    }
+}
+/* =========================================
+   NUEVAS SECCIONES — AYUDA ANIMAL
+   ========================================= */
+
+
+/* ---------- TÍTULOS PEQUEÑOS ---------- */
+
+.mini-title {
+    color: #f05aa6;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+
+/* ---------- ESTADÍSTICAS ---------- */
+
+.stats {
+    padding: 35px 7%;
+    background: #222;
+    color: white;
+
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+}
+
+.stat strong {
+    display: block;
+    color: #ffd6e7;
+    font-size: 2.3rem;
+    font-weight: 900;
+}
+
+.stat span {
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+
+/* ---------- SECCIÓN DE ANIMALES ---------- */
+
+.animales-section {
+    background: #fff;
+}
+
+.animal-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.animal-card {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        7px 7px 0 #8b5cf6;
+
+    transition: 0.2s ease;
+}
+
+.animal-card:nth-child(2) {
+    box-shadow:
+        7px 7px 0 #f05aa6;
+}
+
+.animal-card:nth-child(3) {
+    box-shadow:
+        7px 7px 0 #4f9d69;
+}
+
+.animal-card:hover {
+    transform:
+        translateY(-8px)
+        rotate(-1deg);
+}
+
+
+/* ---------- FOTO DEL ANIMAL ---------- */
+
+.animal-photo {
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 6rem;
+}
+
+.animal-photo.pink {
+    background: #ffd6e7;
+}
+
+.animal-photo.blue {
+    background: #cbe9ff;
+}
+
+.animal-photo.green {
+    background: #cdefd6;
+}
+
+
+/* ---------- INFORMACIÓN ---------- */
+
+.animal-info {
+    padding: 25px;
+}
+
+.animal-info h3 {
+    font-size: 1.8rem;
+    margin: 8px 0;
+}
+
+.animal-info p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.animal-info button {
+    margin-top: 15px;
+    width: 100%;
+    background: #ffd6e7;
+}
+
+
+/* ---------- ETIQUETAS ---------- */
+
+.tag {
+    display: inline-block;
+
+    background: #8b5cf6;
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+
+/* ---------- INFORMACIÓN EXTRA ---------- */
+
+.info-section {
+    background: #cdefd6;
+}
+
+.info-box {
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    box-shadow: 8px 8px 0 #4f9d69;
+}
+
+.info-box.reverse {
+    box-shadow: 8px 8px 0 #8b5cf6;
+}
+
+.info-icon {
+    min-width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffd6e7;
+
+    border: 3px solid #222;
+    border-radius: 50%;
+
+    font-size: 3rem;
+}
+
+.info-box h2 {
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    margin: 8px 0;
+    color: #555;
+}
+
+
+/* ---------- REFUGIOS ---------- */
+
+.refugios {
+    background: #cbe9ff;
+}
+
+.shelter-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.shelter-card {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow:
+        7px 7px 0 #8b5cf6;
+
+    transition: 0.2s ease;
+}
+
+.shelter-card:nth-child(2) {
+    box-shadow:
+        7px 7px 0 #f05aa6;
+}
+
+.shelter-card:nth-child(3) {
+    box-shadow:
+        7px 7px 0 #4f9d69;
+}
+
+.shelter-card:hover {
+    transform:
+        translateY(-7px);
+}
+
+.shelter-icon {
+    font-size: 3rem;
+}
+
+.shelter-card h3 {
+    margin: 10px 0;
+
+    font-size: 1.4rem;
+}
+
+.shelter-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.shelter-card span {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.shelter-btn {
+    background: #cdefd6;
+}
+
+
+/* ---------- FAQ ---------- */
+
+.faq {
+    background: #fff8e8;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+details {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+
+    padding: 20px;
+
+    box-shadow:
+        5px 5px 0 #ffd6e7;
+}
+
+summary {
+    cursor: pointer;
+
+    font-weight: 900;
+
+    font-size: 1.1rem;
+}
+
+details p {
+    margin-top: 15px;
+    color: #555;
+}
+
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(34, 34, 34, 0.65);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.25s ease;
+}
+
+.modal.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 550px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #222;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow:
+        10px 10px 0 #f05aa6;
+
+    position: relative;
+}
+
+.modal-content h2 {
+    color: #8b5cf6;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.modal-content > p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+/* ---------- CERRAR MODAL ---------- */
+
+.cerrar-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    padding: 0;
+
+    background: #ffd6e7;
+
+    font-size: 1.5rem;
+}
+
+
+/* ---------- FORMULARIO ---------- */
+
+#formularioAnimal {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+#formularioAnimal label {
+    font-weight: 900;
+}
+
+#formularioAnimal input,
+#formularioAnimal select,
+#formularioAnimal textarea {
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    padding: 13px;
+
+    border: 3px solid #222;
+
+    border-radius: 15px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+}
+
+#formularioAnimal input:focus,
+#formularioAnimal select:focus,
+#formularioAnimal textarea:focus {
+    border-color: #8b5cf6;
+
+    box-shadow:
+        3px 3px 0 #ffd6e7;
+}
+
+#formularioAnimal button {
+    background: #8b5cf6;
+    color: white;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .animal-grid,
+    .shelter-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .info-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        padding: 25px 4%;
+    }
+
+    .stat strong {
+        font-size: 1.8rem;
+    }
+
+    .info-box {
+        padding: 25px;
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+}
+/* =========================
+   FOTO DE PUBLICACIÓN
+========================= */
+
+.vista-previa-foto {
+    width: 100%;
+    height: 220px;
+    margin-top: 10px;
+    border: 3px dashed #8b5cf6;
+    border-radius: 20px;
+    background: #fff8e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    text-align: center;
+    color: #777;
+}
+
+.vista-previa-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Foto dentro de las publicaciones */
+
+.animal-foto-publicacion {
+    width: 100%;
+    height: 200px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.animal-foto-publicacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.animal-foto-publicacion {
+    width: 100%;
+    height: 200px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.animal-foto-publicacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sin-foto {
+    background: #cbe9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}

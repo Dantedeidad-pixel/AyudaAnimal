@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayuda Animal 🐾</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <a href="#inicio" class="logo">
+            🐾 Ayuda Animal
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#adoptar">Adoptar</a>
+            <a href="#calle">Animales en la calle</a>
+            <a href="#refugios">Refugios</a>
+        </nav>
+
+        <button class="btn" id="botonPublicar">
+            + Publicar
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-text">
+
+                <p class="mini-title">
+                    🐾 UNA RED PARA AYUDAR
+                </p>
+
+                <h1>
+                    Ayuda a un animal cerca de ti.
+                </h1>
+
+                <p>
+                    ¿Encontraste un animal abandonado? ¿Quieres adoptar?
+                    ¿Necesitas encontrar un refugio? Ayuda Animal conecta
+                    a personas que quieren ayudar con animales que necesitan
+                    una mano.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button id="ubicacion">
+                        📍 Encontrar ayuda cerca de mí
+                    </button>
+
+                    <a href="#formas-ayuda" class="btn">
+                        🧡 Quiero ayudar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+    <img src="imagenes/perro y gato" alt="Perro y gato">
+</div>
+
+        </section>
+
+
+        <!-- ================= ESTADÍSTICAS ================= -->
+
+        <section class="stats">
+
+            <div class="stat">
+                <strong id="contadorAnimales">24</strong>
+                <span>Animales publicados</span>
+            </div>
+
+            <div class="stat">
+                <strong>8</strong>
+                <span>Animales adoptados</span>
+            </div>
+
+            <div class="stat">
+                <strong>12</strong>
+                <span>Refugios registrados</span>
+            </div>
+
+            <div class="stat">
+                <strong>37</strong>
+                <span>Personas ayudando</span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= CÓMO FUNCIONA ================= -->
+
+        <section class="como-funciona">
+
+            <div class="section-title">
+
+                <h2>¿Cómo funciona?</h2>
+
+                <p>
+                    Ayuda Animal busca hacer que ayudar sea más fácil,
+                    incluso cuando no puedes quedarte con el animal.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        📍
+                    </div>
+
+                    <h3>1. Encuentra</h3>
+
+                    <p>
+                        Mira animales que necesitan ayuda cerca de tu zona
+                        o busca opciones de adopción.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        📢
+                    </div>
+
+                    <h3>2. Reporta</h3>
+
+                    <p>
+                        Si encuentras un animal abandonado, puedes publicar
+                        información para que otras personas puedan ayudar.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        ❤️
+                    </div>
+
+                    <h3>3. Ayuda</h3>
+
+                    <p>
+                        Puedes ofrecer alimento, transporte, atención
+                        veterinaria, hogar temporal o adopción.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FORMAS DE AYUDAR ================= -->
+
+        <section class="formas-ayudar" id="formas-ayuda">
+
+            <div class="section-title">
+
+                <h2>¿Cómo puedes ayudar?</h2>
+
+                <p>
+                    No necesitas ser una organización para hacer algo.
+                    Una pequeña ayuda puede ser importante para un animal.
+                </p>
+
+            </div>
+
+
+            <div class="help-grid">
+
+                <div class="help-card">
+
+                    <div class="icon">🏠</div>
+
+                    <div>
+
+                        <h3>Adoptar</h3>
+
+                        <p>
+                            Encuentra animales que están buscando una familia
+                            y conoce información sobre ellos antes de contactar.
+                        </p>
+
+                    </div>
+
+                    <a href="#adoptar">
+                        Ver animales →
+                    </a>
+
+                </div>
+
+
+                <div class="help-card">
+
+                    <div class="icon">🐕</div>
+
+                    <div>
+
+                        <h3>Ayudar en la calle</h3>
+
+                        <p>
+                            Encuentra animales que necesitan comida,
+                            atención veterinaria, transporte o un lugar seguro.
+                        </p>
+
+                    </div>
+
+                    <a href="#calle">
+                        Ver casos →
+                    </a>
+
+                </div>
+
+
+                <div class="help-card">
+
+                    <div class="icon">🏥</div>
+
+                    <div>
+
+                        <h3>Encontrar refugios</h3>
+
+                        <p>
+                            Consulta refugios y organizaciones que pueden
+                            recibir o ayudar a animales.
+                        </p>
+
+                    </div>
+
+                    <a href="#refugios">
+                        Ver refugios →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADOPCIONES ================= -->
+
+        <section class="animales-section" id="adoptar">
+
+            <div class="section-title">
+
+                <p class="mini-title">🏠 ADOPCIÓN</p>
+
+                <h2>Animales buscando un hogar</h2>
+
+                <p>
+                    Estos animales necesitan una familia responsable.
+                    Conoce un poco sobre ellos y descubre cómo puedes ayudar.
+                </p>
+
+            </div>
+
+
+            <div class="animal-grid">
+
+
+                <article class="animal-card">
+
+                   <div class="animal-photo pink">
+    <img src="imagenes/chiwa.jpeg" alt="chiwa, gatita en adopción">
+</div>
+
+                    <div class="animal-info">
+
+                        <span class="tag">Adopción</span>
+
+                        <h3>chiwa</h3>
+
+                        <p>
+                            🐕 gata · 1 año
+                        </p>
+
+                        <p>
+                             chiwa es tranquila y busca una familia
+                            que pueda darle un hogar estable.
+                        </p>
+
+                        <button class="info-animal"
+                            data-animal="chiwa">
+                            💗 Conocer a chiwa
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="animal-card">
+
+                    <div class="animal-photo blue">
+                        🐱
+                    </div>
+
+                    <div class="animal-info">
+
+                        <span class="tag">Adopción</span>
+
+                        <h3>Michi</h3>
+
+                        <p>
+                            🐈 Gato · 1 año
+                        </p>
+
+                        <p>
+                            Michi es curioso y juguetón.
+                            Está buscando una familia responsable.
+                        </p>
+
+                        <button class="info-animal"
+                            data-animal="Michi">
+                            💗 Conocer a Michi
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="animal-card">
+
+                    <div class="animal-photo green">
+                        🐶
+                    </div>
+
+                    <div class="animal-info">
+
+                        <span class="tag">Adopción</span>
+
+                        <h3>Max</h3>
+
+                        <p>
+                            🐕 Perro · 3 años
+                        </p>
+
+                        <p>
+                            Max necesita un hogar donde pueda
+                            recibir atención y mucho cariño.
+                        </p>
+
+                        <button class="info-animal"
+                            data-animal="Max">
+                            💗 Conocer a Max
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANIMALES EN LA CALLE ================= -->
+
+        <section class="animales" id="calle">
+
+            <div class="section-title">
+
+                <p class="mini-title">🆘 NECESITAN AYUDA</p>
+
+                <h2>Animales en la calle</h2>
+
+                <p>
+                    Algunos animales no necesitan necesariamente ser adoptados
+                    inmediatamente. También puedes ayudarlos con comida,
+                    transporte, atención veterinaria o buscando un hogar temporal.
+                </p>
+
+            </div>
+
+
+            <div id="resultados">
+
+                <!-- Aquí JavaScript pondrá los animales cercanos -->
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INFORMACIÓN ================= -->
+
+        <section class="info-section">
+
+            <div class="info-box">
+
+                <div class="info-icon">
+                    🥣
+                </div>
+
+                <div>
+
+                    <h2>¿No puedes adoptar?</h2>
+
+                    <p>
+                        No pasa nada. Ayudar no significa necesariamente
+                        llevarte al animal a casa.
+                    </p>
+
+                    <p>
+                        También puedes colaborar llevando alimento,
+                        ayudando con transporte, compartiendo una publicación,
+                        buscando un veterinario o ayudando a encontrar un
+                        hogar temporal.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-box reverse">
+
+                <div class="info-icon">
+                    🚗
+                </div>
+
+                <div>
+
+                    <h2>¿Puedes ofrecer transporte?</h2>
+
+                    <p>
+                        Algunas veces un animal ya tiene una persona dispuesta
+                        a ayudar, pero necesita que alguien lo transporte.
+                    </p>
+
+                    <p>
+                        Por eso la plataforma también puede conectar personas
+                        que necesitan transporte con personas que pueden colaborar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REFUGIOS ================= -->
+
+        <section class="refugios" id="refugios">
+
+            <div class="section-title">
+
+                <p class="mini-title">🏥 REFUGIOS</p>
+
+                <h2>Refugios y organizaciones</h2>
+
+                <p>
+                    Los refugios pueden ser una opción cuando un animal
+                    necesita un lugar seguro mientras encuentra una solución.
+                </p>
+
+            </div>
+
+
+            <div class="shelter-grid">
+
+
+                <article class="shelter-card">
+
+                    <div class="shelter-icon">
+                        🏠
+                    </div>
+
+                    <h3>Huellitas de Esperanza</h3>
+
+                    <p>
+                        Refugio para perros y gatos rescatados.
+                    </p>
+
+                    <span>
+                        📍 Zona urbana
+                    </span>
+
+                    <button class="refugio-btn"
+                        data-refugio="Huellitas de Esperanza">
+                        Ver información
+                    </button>
+
+                </article>
+
+
+                <article class="shelter-card">
+
+                    <div class="shelter-icon">
+                        🐾
+                    </div>
+
+                    <h3>Patitas Unidas</h3>
+
+                    <p>
+                        Organización dedicada al rescate y adopción.
+                    </p>
+
+                    <span>
+                        📍 Cerca de tu zona
+                    </span>
+
+                    <button class="refugio-btn"
+                        data-refugio="Patitas Unidas">
+                        Ver información
+                    </button>
+
+                </article>
+
+
+                <article class="shelter-card">
+
+                    <div class="shelter-icon">
+                        ❤️
+                    </div>
+
+                    <h3>Un Hogar para Todos</h3>
+
+                    <p>
+                        Apoyo a animales que necesitan hogar temporal.
+                    </p>
+
+                    <span>
+                        📍 Zona metropolitana
+                    </span>
+
+                    <button class="refugio-btn"
+                        data-refugio="Un Hogar para Todos">
+                        Ver información
+                    </button>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PREGUNTAS ================= -->
+
+        <section class="faq">
+
+            <div class="section-title">
+
+                <p class="mini-title">💬 PREGUNTAS</p>
+
+                <h2>Preguntas frecuentes</h2>
+
+            </div>
+
+
+            <div class="faq-container">
+
+                <details>
+                    <summary>
+                        ¿Tengo que adoptar para ayudar?
+                    </summary>
+
+                    <p>
+                        No. Puedes ayudar de muchas formas: compartiendo
+                        publicaciones, llevando alimento, ofreciendo transporte,
+                        ayudando a buscar un refugio o apoyando un caso.
+                    </p>
+
+                </details>
+
+
+                <details>
+                    <summary>
+                        ¿Puedo publicar un animal que encontré?
+                    </summary>
+
+                    <p>
+                        Sí. La idea de Ayuda Animal es que puedas informar
+                        sobre animales que necesitan ayuda aunque tú no puedas
+                        quedarte con ellos.
+                    </p>
+
+                </details>
+
+
+                <details>
+                    <summary>
+                        ¿Cómo funciona la ubicación?
+                    </summary>
+
+                    <p>
+                        La página puede utilizar la ubicación del dispositivo
+                        para mostrar resultados cercanos. Por seguridad,
+                        no se debe publicar públicamente la ubicación exacta
+                        de un animal.
+                    </p>
+
+                </details>
+
+
+                <details>
+                    <summary>
+                        ¿Puedo ofrecer ayuda aunque no tenga experiencia?
+                    </summary>
+
+                    <p>
+                        Sí, pero algunas situaciones requieren profesionales.
+                        Si un animal está herido o enfermo, lo adecuado es
+                        buscar ayuda veterinaria o de una organización.
+                    </p>
+
+                </details>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <h2>
+                ¿Encontraste un animal que necesita ayuda?
+            </h2>
+
+            <p>
+                Publica la información para que otras personas puedan
+                conocer el caso y colaborar.
+            </p>
+
+            <button class="btn" id="botonPublicar2">
+                🐾 Publicar un animal
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>🐾 Ayuda Animal</h3>
+
+                <p>
+                    Una plataforma creada para conectar personas
+                    que quieren ayudar con animales que necesitan
+                    una oportunidad.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explorar</h4>
+
+                <a href="#inicio">Inicio</a>
+                <a href="#adoptar">Adoptar</a>
+                <a href="#calle">Animales en la calle</a>
+                <a href="#refugios">Refugios</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Ayuda</h4>
+
+                <a href="#formas-ayuda">Cómo ayudar</a>
+                <a href="#faq">Preguntas frecuentes</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                🐾 Ayuda Animal · Proyecto educativo
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= VENTANA PARA PUBLICAR ================= -->
+
+    <div class="modal" id="modalPublicar">
+
+        <div class="modal-content">
+
+            <button class="cerrar-modal" id="cerrarModal">
+                ×
+            </button>
+
+            <h2>🐾 Publicar un animal</h2>
+
+            <p>
+                Cuéntanos sobre el animal que necesita ayuda.
+            </p>
+
+
+            <form id="formularioAnimal">
+
+    <label>
+        📛 Nombre del animal
+        <input
+            type="text"
+            id="nombreAnimal"
+            placeholder="Ej: Rocky"
+            required
+        >
+    </label>
+
+    <label>
+        🐾 Tipo de animal
+        <select id="tipoAnimal">
+            <option value="Perro">🐶 Perro</option>
+            <option value="Gato">🐱 Gato</option>
+            <option value="Otro">🐾 Otro</option>
+        </select>
+    </label>
+
+    <label>
+        🎂 Edad
+        <input
+            type="text"
+            id="edadAnimal"
+            placeholder="Ej: 2 años"
+        >
+    </label>
+
+    <label>
+        ⚧️ Sexo
+        <select id="sexoAnimal">
+            <option value="No especificado">No especificado</option>
+            <option value="Hembra">♀️ Hembra</option>
+            <option value="Macho">♂️ Macho</option>
+        </select>
+    </label>
+
+    <label>
+        📏 Tamaño
+        <select id="tamanoAnimal">
+            <option value="Pequeño">Pequeño</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+        </select>
+    </label>
+
+    <label>
+        ❤️ ¿Qué necesita?
+        <select id="necesidadAnimal">
+            <option value="Alimento">🍖 Alimento</option>
+            <option value="Atención veterinaria">🏥 Atención veterinaria</option>
+            <option value="Hogar temporal">🏠 Hogar temporal</option>
+            <option value="Adopción">❤️ Adopción</option>
+            <option value="Transporte">🚗 Transporte</option>
+        </select>
+    </label>
+
+    <label>
+        📍 Zona aproximada
+        <input
+            type="text"
+            id="zonaAnimal"
+            placeholder="Ej: Centro"
+        >
+    </label>
+
+    <label>
+        🩺 Estado de salud
+        <input
+            type="text"
+            id="saludAnimal"
+            placeholder="Ej: Está bien, pero necesita revisión"
+        >
+    </label>
+
+    <label>
+        📷 Foto del animal
+        <input
+            type="file"
+            id="fotoAnimal"
+            accept="image/*"
+        >
+    </label>
+
+    <div id="vistaPreviaFoto" class="vista-previa-foto">
+        📷 Aquí aparecerá la foto
+    </div>
+
+    <label>
+        📝 Cuéntanos su historia
+        <textarea
+            id="descripcionAnimal"
+            placeholder="¿Qué pasó? ¿Por qué necesita ayuda?"
+            rows="4"
+        ></textarea>
+    </label>
+
+    <button type="submit">
+        📢 Publicar caso
+    </button>
+
+</form>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
