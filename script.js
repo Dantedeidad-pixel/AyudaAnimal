@@ -1,3308 +1,1697 @@
-const SUPABASE_URL = "https://eipxfdtlemdykdomkrku.supabase.co";
+/* =========================================
+   🐾 AYUDA ANIMAL — DISEÑO Y2K
+   ========================================= */
 
-const SUPABASE_KEY = "sb_publishable_oZzjRB_M2-buW3e4phEEmg_WDRJVuDZ";
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
 
-async function probarSupabase() {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    try {
+html {
+    scroll-behavior: smooth;
+}
 
-        const respuesta = await fetch(
-            `${SUPABASE_URL}/rest/v1/publicaciones_animales?select=*`,
-            {
-                headers: {
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`
-                }
-            }
-        );
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8e8;
+    color: #333;
+    line-height: 1.6;
+}
 
-        const datos = await respuesta.json();
+/* ---------- ENCABEZADO ---------- */
 
-        console.log("🐾 CONEXIÓN CON SUPABASE:", datos);
+header {
+    background: #ffffff;
+    border-bottom: 3px solid #222;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
+}
 
-    } catch (error) {
+.logo {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #8b5cf6;
+    text-decoration: none;
+    white-space: nowrap;
+}
 
-        console.error(
-            "❌ Error conectando con Supabase:",
-            error
-        );
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 8px 13px;
+    border-radius: 20px;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    background: #cbe9ff;
+    transform: rotate(-2deg);
+}
+
+/* ---------- BOTONES ---------- */
+
+button,
+.btn {
+    border: 3px solid #222;
+    border-radius: 18px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s ease;
+    box-shadow: 4px 4px 0 #222;
+}
+
+button:hover,
+.btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 #222;
+}
+
+#ubicacion {
+    background: #8b5cf6;
+    color: white;
+}
+
+header .btn {
+    background: #f05aa6;
+    color: white;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 570px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background:
+        radial-gradient(circle at 10% 20%, #ffd6e7 0 80px, transparent 81px),
+        radial-gradient(circle at 90% 80%, #cdefd6 0 100px, transparent 101px),
+        #fff8e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "✦  🐾  ★  ♡  ✦";
+    position: absolute;
+    top: 25px;
+    right: 8%;
+    font-size: 1.5rem;
+    color: #f05aa6;
+    letter-spacing: 12px;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    margin-bottom: 25px;
+    color: #8b5cf6;
+    text-shadow: 4px 4px 0 #ffd6e7;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    background: #cbe9ff;
+    color: #222;
+}
+
+.hero-buttons .btn:hover {
+    background: #cdefd6;
+}
+
+/* ---------- IMAGEN / ILUSTRACIÓN DEL HERO ---------- */
+
+.hero-image {
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-image::before {
+    content: "ADOPTA • AYUDA • CUIDA";
+    position: absolute;
+    bottom: 18px;
+    background: #fff;
+    border: 3px solid #222;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+/* ---------- SECCIONES ---------- */
+
+section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: auto;
+    color: #555;
+}
+
+/* ---------- CÓMO FUNCIONA ---------- */
+
+.como-funciona {
+    background: #cbe9ff;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.step {
+    background: #fff;
+    border: 3px solid #222;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 7px 7px 0 #8b5cf6;
+    transition: 0.2s ease;
+}
+
+.step:nth-child(2) {
+    box-shadow: 7px 7px 0 #f05aa6;
+}
+
+.step:nth-child(3) {
+    box-shadow: 7px 7px 0 #4f9d69;
+}
+
+.step:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* ---------- FORMAS DE AYUDAR ---------- */
+
+.formas-ayudar {
+    background: #fff8e8;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.help-card {
+    min-height: 260px;
+    padding: 30px;
+    border: 3px solid #222;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.2s ease;
+}
+
+.help-card:hover {
+    transform: translateY(-8px);
+}
+
+.help-card:nth-child(1) {
+    background: #ffd6e7;
+    box-shadow: 7px 7px 0 #deaac4;
+}
+
+.help-card:nth-child(2) {
+    background: #cdefd6;
+    box-shadow: 7px 7px 0 #4f9d69;
+}
+
+.help-card:nth-child(3) {
+    background: #cbe9ff;
+    box-shadow: 7px 7px 0 #8b5cf6;
+}
+
+.help-card .icon {
+    font-size: 3rem;
+}
+
+.help-card h3 {
+    font-size: 1.7rem;
+    margin: 10px 0;
+}
+
+.help-card p {
+    color: #444;
+}
+
+.help-card a {
+    margin-top: 20px;
+    color: #222;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+/* ---------- ANIMALES ---------- */
+
+.animales {
+    background: #f5eaff;
+}
+
+#resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.animal {
+    background: white;
+    border: 3px solid #222;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 6px 6px 0 #f05aa6;
+    transition: 0.2s ease;
+}
+
+.animal:nth-child(even) {
+    box-shadow: 6px 6px 0 #8b5cf6;
+}
+
+.animal:hover {
+    transform: translateY(-7px) rotate(1deg);
+}
+
+.animal h3 {
+    color: #8b5cf6;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.animal p {
+    margin: 7px 0;
+}
+
+.animal button {
+    background: #cdefd6;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* ---------- MENSAJE CUANDO NO HAY RESULTADOS ---------- */
+
+#resultados:empty::before {
+    content: "📍 Pulsa “Encontrar ayuda cerca de mí” para buscar animales cerca de ti.";
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    background: white;
+    border: 3px dashed #8b5cf6;
+    border-radius: 25px;
+    padding: 30px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ---------- LLAMADO A LA ACCIÓN ---------- */
+
+.cta {
+    background: #8b5cf6;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: "🐾";
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.08;
+    left: 5%;
+    top: -40px;
+}
+
+.cta::after {
+    content: "★";
+    position: absolute;
+    font-size: 10rem;
+    opacity: 0.08;
+    right: 8%;
+    bottom: -50px;
+}
+
+.cta h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+}
+
+.cta p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    font-size: 1.1rem;
+}
+
+.cta .btn {
+    background: #ffd6e7;
+    color: #222;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 50px 7% 25px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+footer h3,
+footer h4 {
+    margin-bottom: 15px;
+}
+
+footer h3 {
+    color: #ffd6e7;
+    font-size: 1.5rem;
+}
+
+footer p {
+    color: #ccc;
+    max-width: 400px;
+}
+
+footer a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin: 8px 0;
+}
+
+footer a:hover {
+    color: #ffd6e7;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    margin-top: 35px;
+    padding-top: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ---------- EFECTOS DECORATIVOS ---------- */
+
+.card {
+    position: relative;
+}
+
+.card::after {
+    content: "✦";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #f05aa6;
+    font-size: 1.3rem;
+}
+
+/* ---------- RESPONSIVE: TABLETS ---------- */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 320px;
+        height: 280px;
+    }
+
+    .steps,
+    .help-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-probarSupabase();
-// ==========================================
-// AYUDA ANIMAL - SCRIPT COMPLETO
-// ==========================================
+/* ---------- RESPONSIVE: CELULARES ---------- */
 
+@media (max-width: 600px) {
 
-// ==========================================
-// ANIMALES DE EJEMPLO
-// ==========================================
-
-const animales = [
-    {
-        nombre: "chiwa",
-        tipo: "gato",
-        necesidad: "Necesita alimento",
-        zona: "Centro",
-        latitud: 4.610,
-        longitud: -74.081
-    },
-
-    {
-        nombre: "Michi",
-        tipo: "Gato",
-        necesidad: "Necesita atención veterinaria",
-        zona: "Norte",
-        latitud: 4.620,
-        longitud: -74.090
-    },
-
-    {
-        nombre: "Max",
-        tipo: "Perro",
-        necesidad: "Busca un hogar",
-        zona: "Sur",
-        latitud: 4.600,
-        longitud: -74.070
-    }
-];
-
-
-// ==========================================
-// UBICACIÓN
-// ==========================================
-
-const botonUbicacion = document.getElementById("ubicacion");
-let publicacionEditandoId = null;
-if (botonUbicacion) {
-    botonUbicacion.addEventListener("click", obtenerUbicacion);
-}
-
-
-function obtenerUbicacion() {
-
-    if (!navigator.geolocation) {
-        alert("Tu navegador no permite usar la ubicación.");
-        return;
+    header {
+        padding: 12px 4%;
     }
 
-    navigator.geolocation.getCurrentPosition(
-        ubicacionEncontrada,
-        errorUbicacion
-    );
-}
-
-
-function ubicacionEncontrada(posicion) {
-
-    const latitud = posicion.coords.latitude;
-    const longitud = posicion.coords.longitude;
-
-    mostrarAnimales(latitud, longitud);
-}
-
-
-function errorUbicacion() {
-
-    alert(
-        "No pudimos obtener tu ubicación. " +
-        "Asegúrate de permitir el acceso."
-    );
-}
-
-
-// ==========================================
-// MOSTRAR ANIMALES
-// ==========================================
-
-function mostrarAnimales(latitudUsuario, longitudUsuario) {
-
-    const resultados = document.getElementById("resultados");
-
-    if (!resultados) return;
-
-    // Limpiamos la pantalla para evitar duplicados
-    resultados.innerHTML = "";
-
-
-    // ==========================================
-    // VOLVER A MOSTRAR LAS PUBLICACIONES
-    // ==========================================
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-    publicaciones.forEach(publicacion => {
-
-        mostrarPublicacion(publicacion);
-
-    });
-
-
-    // ==========================================
-    // MOSTRAR ANIMALES CERCANOS DE EJEMPLO
-    // ==========================================
-
-    animales.forEach(animal => {
-
-        const distancia = calcularDistancia(
-            latitudUsuario,
-            longitudUsuario,
-            animal.latitud,
-            animal.longitud
-        );
-
-
-        const tarjeta = document.createElement("div");
-
-        tarjeta.classList.add("animal");
-
-
-        tarjeta.innerHTML = `
-            <h3>🐾 ${animal.nombre}</h3>
-
-            <p>
-                <strong>Tipo:</strong>
-                ${animal.tipo}
-            </p>
-
-            <p>
-                <strong>Necesita:</strong>
-                ${animal.necesidad}
-            </p>
-
-            <p>
-                <strong>Zona:</strong>
-                ${animal.zona}
-            </p>
-
-            <p>
-                📍 A ${distancia.toFixed(2)} km de ti
-            </p>
-
-            <button
-                class="ayudar-btn"
-                onclick="mostrarOpcionesAyuda('${animal.nombre}')"
-            >
-                ❤️ Quiero ayudar
-            </button>
-        `;
-
-
-        resultados.appendChild(tarjeta);
-
-    });
-
-}
-
-
-// ==========================================
-// DISTANCIA
-// ==========================================
-
-function calcularDistancia(lat1, lon1, lat2, lon2) {
-
-    const R = 6371;
-
-    const dLat = gradosARadianes(lat2 - lat1);
-    const dLon = gradosARadianes(lon2 - lon1);
-
-    const a =
-        Math.sin(dLat / 2) ** 2 +
-        Math.cos(gradosARadianes(lat1)) *
-        Math.cos(gradosARadianes(lat2)) *
-        Math.sin(dLon / 2) ** 2;
-
-    const c =
-        2 * Math.atan2(
-            Math.sqrt(a),
-            Math.sqrt(1 - a)
-        );
-
-    return R * c;
-}
-
-
-function gradosARadianes(grados) {
-    return grados * Math.PI / 180;
-}
-
-
-// ==========================================
-// MODAL
-// ==========================================
-
-const modalPublicar =
-    document.getElementById("modalPublicar");
-
-const botonPublicar =
-    document.getElementById("botonPublicar");
-
-const botonPublicar2 =
-    document.getElementById("botonPublicar2");
-
-const cerrarModal =
-    document.getElementById("cerrarModal");
-
-
-function abrirModal() {
-
-    if (modalPublicar) {
-        modalPublicar.classList.add("activo");
-    }
-}
-
-
-if (botonPublicar) {
-    botonPublicar.addEventListener("click", abrirModal);
-}
-
-
-if (botonPublicar2) {
-    botonPublicar2.addEventListener("click", abrirModal);
-}
-
-
-if (cerrarModal) {
-
-    cerrarModal.addEventListener("click", () => {
-        modalPublicar.classList.remove("activo");
-    });
-
-}
-
-
-// Cerrar haciendo clic afuera
-
-if (modalPublicar) {
-
-    modalPublicar.addEventListener("click", (evento) => {
-
-        if (evento.target === modalPublicar) {
-            modalPublicar.classList.remove("activo");
-        }
-
-    });
-
-}
-
-
-// ==========================================
-// ELEMENTOS DEL FORMULARIO
-// ==========================================
-
-const formularioAnimal =
-    document.getElementById("formularioAnimal");
-
-const fotoAnimal =
-    document.getElementById("fotoAnimal");
-
-const vistaPreviaFoto =
-    document.getElementById("vistaPreviaFoto");
-
-
-// ==========================================
-// PREVISUALIZAR FOTO
-// ==========================================
-
-if (fotoAnimal) {
-
-    fotoAnimal.addEventListener("change", () => {
-
-        const archivo = fotoAnimal.files[0];
-
-        if (!archivo) return;
-
-        if (!archivo.type.startsWith("image/")) {
-
-            alert("Selecciona una imagen válida.");
-
-            fotoAnimal.value = "";
-
-            return;
-        }
-
-
-        // Guardamos el archivo seleccionado
-        fotoAnimal.archivoSeleccionado = archivo;
-
-
-        // Vista previa
-        const lector = new FileReader();
-
-        lector.onload = (evento) => {
-
-            if (vistaPreviaFoto) {
-
-                vistaPreviaFoto.innerHTML = `
-                    <img
-                        src="${evento.target.result}"
-                        alt="Vista previa"
-                    >
-                `;
-
-            }
-
-        };
-
-        lector.readAsDataURL(archivo);
-
-    });
-
-}
-
-
-// ==========================================
-// PUBLICAR
-// ==========================================
-
-if (formularioAnimal) {
-
-    formularioAnimal.addEventListener("submit", (evento) => {
-
-        evento.preventDefault();
-
-        const nombre =
-            document.getElementById("nombreAnimal").value;
-
-        const tipo =
-            document.getElementById("tipoAnimal").value;
-
-        const edad =
-            document.getElementById("edadAnimal").value;
-
-        const sexo =
-            document.getElementById("sexoAnimal").value;
-
-        const tamano =
-            document.getElementById("tamanoAnimal").value;
-
-        const necesidad =
-            document.getElementById("necesidadAnimal").value;
-
-        const zona =
-            document.getElementById("zonaAnimal").value;
-
-        const salud =
-            document.getElementById("saludAnimal").value;
-
-        const descripcion =
-            document.getElementById("descripcionAnimal").value;
-
-        const archivo =
-            fotoAnimal ? fotoAnimal.files[0] : null;
-
-
-        // Si tiene foto
-
-        if (archivo) {
-
-            const lector = new FileReader();
-
-            lector.onload = (eventoFoto) => {
-
-                guardarPublicacion({
-
-                    foto: eventoFoto.target.result,
-
-                    nombre: nombre,
-
-                    tipo: tipo,
-
-                    edad: edad || "No especificada",
-
-                    sexo: sexo,
-
-                    tamano: tamano,
-
-                    necesidad: necesidad,
-
-                    zona: zona || "No especificada",
-
-                    salud: salud || "No especificada",
-
-                    descripcion:
-                        descripcion || "Sin descripción."
-
-                });
-
-            };
-
-            lector.readAsDataURL(archivo);
-
-
-        } else {
-
-            guardarPublicacion({
-
-                foto: "",
-
-                nombre: nombre,
-
-                tipo: tipo,
-
-                edad: edad || "No especificada",
-
-                sexo: sexo,
-
-                tamano: tamano,
-
-                necesidad: necesidad,
-
-                zona: zona || "No especificada",
-
-                salud: salud || "No especificada",
-
-                descripcion:
-                    descripcion || "Sin descripción."
-
-            });
-
-        }
-
-    });
-
-}
-
-
-// ==========================================
-// GUARDAR / EDITAR PUBLICACIÓN
-// ==========================================
-
-async function guardarPublicacion(publicacion) {
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-
-// ==========================================
-// EDITAR UNA PUBLICACIÓN EXISTENTE
-// ==========================================
-
-if (publicacionEditandoId !== null) {
-
-    const indice =
-        publicaciones.findIndex(
-            animal => animal.id === publicacionEditandoId
-        );
-
-    if (indice !== -1) {
-
-        // Conservamos ID y estado
-        publicacion.id =
-            publicaciones[indice].id;
-
-        publicacion.estado =
-            publicaciones[indice].estado || "publicado";
-
-
-        // ==========================================
-        // ACTUALIZAR EN SUPABASE
-        // ==========================================
-
-        try {
-
-            const respuesta = await fetch(
-                `${SUPABASE_URL}/rest/v1/publicaciones_animales?id=eq.${publicacionEditandoId}`,
-                {
-                    method: "PATCH",
-
-                    headers: {
-                        "apikey": SUPABASE_KEY,
-                        "Authorization": `Bearer ${SUPABASE_KEY}`,
-                        "Content-Type": "application/json",
-                        "Prefer": "return=representation"
-                    },
-
-                    body: JSON.stringify({
-
-                        nombre: publicacion.nombre,
-                        tipo: publicacion.tipo,
-                        edad: publicacion.edad,
-                        sexo: publicacion.sexo,
-                        tamano: publicacion.tamano,
-                        necesidad: publicacion.necesidad,
-                        zona: publicacion.zona,
-                        salud: publicacion.salud,
-                        descripcion: publicacion.descripcion,
-                        foto_url: publicacion.foto || null
-
-                    })
-                }
-            );
-
-
-            const resultado =
-                await respuesta.json();
-
-
-            if (!respuesta.ok) {
-
-                console.error(
-                    "❌ Error actualizando publicación:",
-                    resultado
-                );
-
-                alert(
-                    "⚠️ No se pudo actualizar la publicación en Supabase."
-                );
-
-                return;
-            }
-
-
-            console.log(
-                "🐾 Publicación actualizada en Supabase:",
-                resultado
-            );
-
-
-        } catch (error) {
-
-            console.error(
-                "❌ Error conectando con Supabase:",
-                error
-            );
-
-            return;
-        }
-
-
-        // ==========================================
-        // ACTUALIZAR LOCALMENTE
-        // ==========================================
-
-        publicaciones[indice] = publicacion;
-
-        localStorage.setItem(
-            "publicacionesAnimales",
-            JSON.stringify(publicaciones)
-        );
-
-
-        actualizarEstadisticas();
-
-        publicacionEditandoId = null;
-
-
-        // Cerrar formulario
-
-        if (modalPublicar) {
-            modalPublicar.classList.remove("activo");
-        }
-
-
-        // Limpiar formulario
-
-        if (formularioAnimal) {
-            formularioAnimal.reset();
-        }
-
-
-        if (vistaPreviaFoto) {
-            vistaPreviaFoto.innerHTML =
-                "📷 Aquí aparecerá la foto";
-        }
-
-
-        // Recargar publicaciones desde Supabase
-
-        if (typeof cargarPublicaciones === "function") {
-            cargarPublicaciones();
-        }
-
-
-        alert(
-            "✏️ ¡Publicación actualizada correctamente!"
-        );
-
-        return;
-    }
-}
-
-
-    // ==========================================
-    // CREAR UNA PUBLICACIÓN NUEVA
-    // ==========================================
-
-    publicacion.estado = "publicado";
-
-
-    // ==========================================
-    // GUARDAR EN SUPABASE
-    // ==========================================
-
-    try {
-
-        const respuesta = await fetch(
-            `${SUPABASE_URL}/rest/v1/publicaciones_animales`,
-            {
-                method: "POST",
-
-                headers: {
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
-                    "Content-Type": "application/json",
-                    "Prefer": "return=representation"
-                },
-
-                body: JSON.stringify({
-
-                    nombre: publicacion.nombre,
-                    tipo: publicacion.tipo,
-                    edad: publicacion.edad,
-                    sexo: publicacion.sexo,
-                    tamano: publicacion.tamano,
-                    necesidad: publicacion.necesidad,
-                    zona: publicacion.zona,
-                    salud: publicacion.salud,
-                    descripcion: publicacion.descripcion,
-                    foto_url: publicacion.foto || null,
-                    estado: "publicado"
-
-                })
-            }
-        );
-
-
-        const resultado =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "❌ Error guardando en Supabase:",
-                resultado
-            );
-
-            alert(
-                "⚠️ La publicación se guardó localmente, pero hubo un problema con la base de datos."
-            );
-
-        } else {
-
-            console.log(
-                "🐾 Publicación guardada en Supabase:",
-                resultado
-            );
-
-
-            // ==========================================
-            // USAR EL ID REAL DE SUPABASE
-            // ==========================================
-
-            if (resultado.length > 0) {
-
-                publicacion.id =
-                    resultado[0].id;
-
-                publicacion.estado =
-                    resultado[0].estado || "publicado";
-
-            }
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "❌ Error de conexión con Supabase:",
-            error
-        );
-
-        // Si Supabase falla, usamos un ID local
-        publicacion.id = Date.now();
-
-        alert(
-            "⚠️ No se pudo conectar con Supabase. La publicación quedará guardada localmente."
-        );
+    .logo {
+        font-size: 1.4rem;
     }
 
-
-    // ==========================================
-    // GUARDAR LOCALMENTE
-    // ==========================================
-
-    publicaciones.push(publicacion);
-
-    localStorage.setItem(
-        "publicacionesAnimales",
-        JSON.stringify(publicaciones)
-    );
-
-
-    actualizarEstadisticas();
-
-
-    // Mostrar inmediatamente
-    mostrarPublicacion(publicacion);
-
-
-    // Cerrar formulario
-    if (modalPublicar) {
-        modalPublicar.classList.remove("activo");
+    nav {
+        justify-content: center;
     }
 
-
-    // Limpiar formulario
-    if (formularioAnimal) {
-        formularioAnimal.reset();
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 9px;
     }
 
-
-    if (vistaPreviaFoto) {
-        vistaPreviaFoto.innerHTML =
-            "📷 Aquí aparecerá la foto";
+    header .btn {
+        display: none;
     }
 
+    section {
+        padding: 60px 5%;
+    }
 
-    alert("🐾 ¡Animal publicado correctamente!");
+    .hero {
+        min-height: auto;
+        padding: 70px 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        min-width: 240px;
+        width: 250px;
+        height: 220px;
+        font-size: 4rem;
+    }
+
+    .hero-image::before {
+        font-size: 0.65rem;
+    }
+
+    button,
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    footer p {
+        margin: auto;
+    }
 }
-// ==========================================
-// ESTADO DE LA PUBLICACIÓN
-// ==========================================
+/* =========================================
+   NUEVAS SECCIONES — AYUDA ANIMAL
+   ========================================= */
 
-function obtenerEstadoVisual(estado) {
 
-    if (estado === "en_proceso") {
-        return "🟡 Ayuda en proceso";
-    }
+/* ---------- TÍTULOS PEQUEÑOS ---------- */
 
-    if (estado === "solucionado") {
-        return "✅ Caso solucionado";
-    }
-
-    return "📢 Publicado";
-}
-// ==========================================
-// MOSTRAR PUBLICACIÓN
-// ==========================================
-
-function mostrarPublicacion(animal) {
-
-    const resultados =
-        document.getElementById("resultados");
-
-    if (!resultados) return;
-    // Contar ayudas recibidas
-const ayudas =
-    JSON.parse(
-        localStorage.getItem("ayudasAnimales")
-    ) || [];
-
-const ayudasAnimal =
-    ayudas.filter(
-        ayuda => ayuda.animal === animal.nombre
-    );
-
-const alimento =
-    ayudasAnimal.filter(
-        ayuda => ayuda.tipo === "🍖 Dar alimento"
-    ).length;
-
-const veterinario =
-    ayudasAnimal.filter(
-        ayuda => ayuda.tipo === "🏥 Ayudar con veterinario"
-    ).length;
-
-const transporte =
-    ayudasAnimal.filter(
-        ayuda => ayuda.tipo === "🚗 Ofrecer transporte"
-    ).length;
-
-const hogar =
-    ayudasAnimal.filter(
-        ayuda => ayuda.tipo === "🏠 Dar hogar temporal"
-    ).length;
-    // Los casos solucionados ya no aparecen
-// entre los casos activos
-if (animal.estado === "solucionado") {
-    return;
+.mini-title {
+    color: #f05aa6;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
 }
 
 
-    const tarjeta =
-        document.createElement("div");
+/* ---------- ESTADÍSTICAS ---------- */
 
-    tarjeta.classList.add("animal");
+.stats {
+    padding: 35px 7%;
+    background: #222;
+    color: white;
+
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+}
+
+.stat strong {
+    display: block;
+    color: #ffd6e7;
+    font-size: 2.3rem;
+    font-weight: 900;
+}
+
+.stat span {
+    color: #ddd;
+    font-size: 0.9rem;
+}
 
 
-    let fotoHTML = "";
+/* ---------- SECCIÓN DE ANIMALES ---------- */
+
+.animales-section {
+    background: #fff;
+}
+
+.animal-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.animal-card {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        7px 7px 0 #8b5cf6;
+
+    transition: 0.2s ease;
+}
+
+.animal-card:nth-child(2) {
+    box-shadow:
+        7px 7px 0 #f05aa6;
+}
+
+.animal-card:nth-child(3) {
+    box-shadow:
+        7px 7px 0 #4f9d69;
+}
+
+.animal-card:hover {
+    transform:
+        translateY(-8px)
+        rotate(-1deg);
+}
 
 
-    if (animal.foto) {
+/* ---------- FOTO DEL ANIMAL ---------- */
 
-        fotoHTML = `
-            <div class="animal-foto-publicacion">
-                <img
-                    src="${animal.foto}"
-                    alt="Foto de ${animal.nombre}"
-                >
-            </div>
-        `;
+.animal-photo {
+    height: 220px;
 
-    } else {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        fotoHTML = `
-            <div class="animal-foto-publicacion sin-foto">
-                🐾
-            </div>
-        `;
+    font-size: 6rem;
+}
 
+.animal-photo.pink {
+    background: #ffd6e7;
+}
+
+.animal-photo.blue {
+    background: #cbe9ff;
+}
+
+.animal-photo.green {
+    background: #cdefd6;
+}
+
+
+/* ---------- INFORMACIÓN ---------- */
+
+.animal-info {
+    padding: 25px;
+}
+
+.animal-info h3 {
+    font-size: 1.8rem;
+    margin: 8px 0;
+}
+
+.animal-info p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.animal-info button {
+    margin-top: 15px;
+    width: 100%;
+    background: #ffd6e7;
+}
+
+
+/* ---------- ETIQUETAS ---------- */
+
+.tag {
+    display: inline-block;
+
+    background: #8b5cf6;
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+
+/* ---------- INFORMACIÓN EXTRA ---------- */
+
+.info-section {
+    background: #cdefd6;
+}
+
+.info-box {
+    max-width: 1000px;
+
+    margin: 0 auto 35px;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    box-shadow: 8px 8px 0 #4f9d69;
+}
+
+.info-box.reverse {
+    box-shadow: 8px 8px 0 #8b5cf6;
+}
+
+.info-icon {
+    min-width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffd6e7;
+
+    border: 3px solid #222;
+    border-radius: 50%;
+
+    font-size: 3rem;
+}
+
+.info-box h2 {
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    margin: 8px 0;
+    color: #555;
+}
+
+
+/* ---------- REFUGIOS ---------- */
+
+.refugios {
+    background: #cbe9ff;
+}
+
+.shelter-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.shelter-card {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow:
+        7px 7px 0 #8b5cf6;
+
+    transition: 0.2s ease;
+}
+
+.shelter-card:nth-child(2) {
+    box-shadow:
+        7px 7px 0 #f05aa6;
+}
+
+.shelter-card:nth-child(3) {
+    box-shadow:
+        7px 7px 0 #4f9d69;
+}
+
+.shelter-card:hover {
+    transform:
+        translateY(-7px);
+}
+
+.shelter-icon {
+    font-size: 3rem;
+}
+
+.shelter-card h3 {
+    margin: 10px 0;
+
+    font-size: 1.4rem;
+}
+
+.shelter-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.shelter-card span {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.shelter-btn {
+    background: #cdefd6;
+}
+
+
+/* ---------- FAQ ---------- */
+
+.faq {
+    background: #fff8e8;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+details {
+    background: white;
+
+    border: 3px solid #222;
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+
+    padding: 20px;
+
+    box-shadow:
+        5px 5px 0 #ffd6e7;
+}
+
+summary {
+    cursor: pointer;
+
+    font-weight: 900;
+
+    font-size: 1.1rem;
+}
+
+details p {
+    margin-top: 15px;
+    color: #555;
+}
+
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(34, 34, 34, 0.65);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.25s ease;
+}
+
+.modal.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 550px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #222;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow:
+        10px 10px 0 #f05aa6;
+
+    position: relative;
+}
+
+.modal-content h2 {
+    color: #8b5cf6;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.modal-content > p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+/* ---------- CERRAR MODAL ---------- */
+
+.cerrar-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    padding: 0;
+
+    background: #ffd6e7;
+
+    font-size: 1.5rem;
+}
+
+
+/* ---------- FORMULARIO ---------- */
+
+#formularioAnimal {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+#formularioAnimal label {
+    font-weight: 900;
+}
+
+#formularioAnimal input,
+#formularioAnimal select,
+#formularioAnimal textarea {
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    padding: 13px;
+
+    border: 3px solid #222;
+
+    border-radius: 15px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+}
+
+#formularioAnimal input:focus,
+#formularioAnimal select:focus,
+#formularioAnimal textarea:focus {
+    border-color: #8b5cf6;
+
+    box-shadow:
+        3px 3px 0 #ffd6e7;
+}
+
+#formularioAnimal button {
+    background: #8b5cf6;
+    color: white;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-
-    tarjeta.innerHTML = `
-
-        ${fotoHTML}
-
-        <h3>🐾 ${animal.nombre}</h3>
-
-        <p>
-            <strong>🐾 Tipo:</strong>
-            ${animal.tipo}
-        </p>
-
-        <p>
-            <strong>🎂 Edad:</strong>
-            ${animal.edad}
-        </p>
-
-        <p>
-            <strong>⚧️ Sexo:</strong>
-            ${animal.sexo}
-        </p>
-
-        <p>
-            <strong>📏 Tamaño:</strong>
-            ${animal.tamano}
-        </p>
-
-        <p>
-            <strong>❤️ Necesita:</strong>
-            ${animal.necesidad}
-        </p>
-
-        <p>
-            <strong>📍 Zona:</strong>
-            ${animal.zona}
-        </p>
-
-        <p>
-            <strong>🩺 Salud:</strong>
-            ${animal.salud}
-        </p>
-
-        <p>
-            <strong>📝 Historia:</strong>
-            ${animal.descripcion}
-        </p>
-
-        <p class="estado-publicacion">
-    ${obtenerEstadoVisual(animal.estado)}
-</p>
-
-<div class="ayudas-registradas">
-
-    ${alimento > 0 ? `
-        <span>🍖 ${alimento} ${alimento === 1 ? "persona ofreció alimento" : "personas ofrecieron alimento"}</span>
-    ` : ""}
-
-    ${veterinario > 0 ? `
-        <span>🏥 ${veterinario} ${veterinario === 1 ? "persona ofreció ayuda veterinaria" : "personas ofrecieron ayuda veterinaria"}</span>
-    ` : ""}
-
-    ${transporte > 0 ? `
-        <span>🚗 ${transporte} ${transporte === 1 ? "persona ofreció transporte" : "personas ofrecieron transporte"}</span>
-    ` : ""}
-
-    ${hogar > 0 ? `
-        <span>🏠 ${hogar} ${hogar === 1 ? "persona ofreció hogar temporal" : "personas ofrecieron hogar temporal"}</span>
-    ` : ""}
-
-</div>
-
-        <div class="acciones-publicacion">
-
-    <button
-        class="ayudar-btn"
-        onclick="mostrarOpcionesAyuda('${animal.nombre}')"
-    >
-        ❤️ Quiero ayudar
-    </button>
-
-    ${
-    animal.id
-    ? `
-        <button
-            class="opciones-btn"
-            data-id="${animal.id}"
-        >
-            ⋮ Opciones
-        </button>
-    `
-    : ""
-}
-
-</div>
-    `;
-
-resultados.prepend(tarjeta);
-
-
-// Activar botón de opciones
-
-const botonOpciones =
-    tarjeta.querySelector(".opciones-btn");
-
-if (botonOpciones) {
-
-    botonOpciones.addEventListener("click", () => {
-
-        const id =
-            Number(botonOpciones.dataset.id);
-
-        mostrarOpcionesPublicacion(id);
-
-    });
-
-}
-}
-
-
-// ==========================================
-// CARGAR PUBLICACIONES AL ABRIR LA PÁGINA
-// ==========================================
-
-async function cargarPublicaciones() {
-
-    try {
-
-        const respuesta = await fetch(
-            `${SUPABASE_URL}/rest/v1/publicaciones_animales?select=*`,
-            {
-                method: "GET",
-
-                headers: {
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`
-                }
-            }
-        );
-
-
-        const publicacionesSupabase =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "❌ Error cargando publicaciones:",
-                publicacionesSupabase
-            );
-
-            return;
-        }
-
-
-        console.log(
-            "🐾 Publicaciones cargadas desde Supabase:",
-            publicacionesSupabase
-        );
-
-
-        // Convertimos los datos de Supabase
-        // al formato que usa nuestra página
-
-        publicacionesSupabase.forEach(animal => {
-
-            const publicacion = {
-
-                id: animal.id,
-
-                nombre: animal.nombre,
-
-                tipo: animal.tipo,
-
-                edad: animal.edad,
-
-                sexo: animal.sexo,
-
-                tamano: animal.tamano,
-
-                necesidad: animal.necesidad,
-
-                zona: animal.zona,
-
-                salud: animal.salud,
-
-                descripcion: animal.descripcion,
-
-                foto: animal.foto_url,
-
-                estado: animal.estado
-
-            };
-
-
-            mostrarPublicacion(publicacion);
-
-        });
-
-
-    } catch (error) {
-
-        console.error(
-            "❌ Error conectando con Supabase:",
-            error
-        );
-
+    .animal-grid,
+    .shelter-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .info-box {
+        flex-direction: column;
+        text-align: center;
     }
 
 }
 
 
-cargarPublicaciones();
-// ==========================================
-// OPCIONES PARA AYUDAR
-// ==========================================
-
-function mostrarOpcionesAyuda(nombreAnimal) {
-
-    const opciones = document.createElement("div");
-
-    opciones.classList.add("modal-ayuda");
-
-    opciones.innerHTML = `
-
-        <div class="contenido-ayuda">
-
-            <button
-                class="cerrar-ayuda"
-                onclick="this.parentElement.parentElement.remove()">
-                ×
-            </button>
-
-            <h2>🐾 Ayudar a ${nombreAnimal}</h2>
-
-            <p>
-                ¿Cómo te gustaría ayudar?
-            </p>
-
-            <button
-                onclick="mostrarFormularioAyuda('🍖 Dar alimento', '${nombreAnimal}')">
-                🍖 Dar alimento
-            </button>
-
-            <button
-                onclick="mostrarFormularioAyuda('🏥 Ayudar con veterinario', '${nombreAnimal}')">
-                🏥 Ayudar con veterinario
-            </button>
-
-            <button
-                onclick="mostrarFormularioAyuda('🚗 Ofrecer transporte', '${nombreAnimal}')">
-                🚗 Ofrecer transporte
-            </button>
-
-            <button
-                onclick="mostrarFormularioAyuda('🏠 Dar hogar temporal', '${nombreAnimal}')">
-                🏠 Dar hogar temporal
-            </button>
-
-            <button
-                onclick="mostrarCompartirCaso('${nombreAnimal}')">
-                📢 Compartir el caso
-            </button>
-
-        </div>
-    `;
-
-    document.body.appendChild(opciones);
-}
-
-function mostrarFormularioAyuda(tipoAyuda, nombreAnimal) {
-
-    document
-        .querySelectorAll(".modal-ayuda")
-        .forEach(modal => modal.remove());
-
-    const formulario = document.createElement("div");
-
-    formulario.classList.add("modal-ayuda");
-
-    let contenido = "";
-
-    if (tipoAyuda === "🍖 Dar alimento") {
-
-        contenido = `
-
-            <h2>🍖 Ayudar a ${nombreAnimal}</h2>
-
-            <p>
-                Cuéntanos cómo piensas ayudar con alimento.
-            </p>
-
-            <label>
-                ¿Qué podrías llevar?
-            </label>
-
-            <input
-                type="text"
-                id="datoAyuda"
-                placeholder="Ej: comida y agua"
-            >
-
-            <label>
-                ¿Cuándo podrías hacerlo?
-            </label>
-
-            <input
-                type="text"
-                id="fechaAyuda"
-                placeholder="Ej: Hoy en la tarde"
-            >
-
-            <label>
-                ¿Dónde podrías entregarlo?
-            </label>
-
-            <input
-                type="text"
-                id="lugarAyuda"
-                placeholder="Ej: Parque del barrio"
-            >
-
-        `;
-
-    } else if (tipoAyuda === "🏥 Ayudar con veterinario") {
-
-        contenido = `
-
-            <h2>🏥 Ayudar a ${nombreAnimal}</h2>
-
-            <p>
-                Cuéntanos qué tipo de ayuda veterinaria puedes brindar.
-            </p>
-
-            <label>
-                ¿Cómo podrías ayudar?
-            </label>
-
-            <input
-                type="text"
-                id="datoAyuda"
-                placeholder="Ej: Llevarlo al veterinario"
-            >
-
-            <label>
-                ¿Cuándo podrías hacerlo?
-            </label>
-
-            <input
-                type="text"
-                id="fechaAyuda"
-                placeholder="Ej: Mañana"
-            >
-
-            <label>
-                Información adicional
-            </label>
-
-            <textarea
-                id="lugarAyuda"
-                placeholder="Escribe algo que quieras aclarar..."
-            ></textarea>
-
-        `;
-
-    } else if (tipoAyuda === "🚗 Ofrecer transporte") {
-
-        contenido = `
-
-            <h2>🚗 Ayudar a ${nombreAnimal}</h2>
-
-            <p>
-                Cuéntanos cómo podrías transportarlo.
-            </p>
-
-            <label>
-                ¿Desde dónde podrías recogerlo?
-            </label>
-
-            <input
-                type="text"
-                id="datoAyuda"
-                placeholder="Ej: Barrio Centro"
-            >
-
-            <label>
-                ¿Hasta dónde podrías llevarlo?
-            </label>
-
-            <input
-                type="text"
-                id="lugarAyuda"
-                placeholder="Ej: Clínica veterinaria"
-            >
-
-            <label>
-                ¿Cuándo estarías disponible?
-            </label>
-
-            <input
-                type="text"
-                id="fechaAyuda"
-                placeholder="Ej: Hoy después de las 5 PM"
-            >
-
-        `;
-
-    } else if (tipoAyuda === "🏠 Dar hogar temporal") {
-
-        contenido = `
-
-            <h2>🏠 Ayudar a ${nombreAnimal}</h2>
-
-            <p>
-                Cuéntanos sobre el hogar temporal que podrías ofrecer.
-            </p>
-
-            <label>
-                ¿Por cuánto tiempo podrías recibirlo?
-            </label>
-
-            <input
-                type="text"
-                id="datoAyuda"
-                placeholder="Ej: Una semana"
-            >
-
-            <label>
-                ¿Tienes otros animales?
-            </label>
-
-            <input
-                type="text"
-                id="lugarAyuda"
-                placeholder="Ej: Sí, tengo un perro"
-            >
-
-            <label>
-                Información adicional
-            </label>
-
-            <textarea
-                id="fechaAyuda"
-                placeholder="Cuéntanos algo más..."
-            ></textarea>
-
-        `;
+@media (max-width: 600px) {
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        padding: 25px 4%;
     }
 
-    formulario.innerHTML = `
-
-        <div class="contenido-ayuda">
-
-            <button
-                class="cerrar-ayuda"
-                onclick="this.parentElement.parentElement.remove()">
-                ×
-            </button>
-
-            ${contenido}
-
-            <button
-                class="boton-enviar-ayuda"
-                onclick="enviarPropuestaAyuda('${tipoAyuda}', '${nombreAnimal}')">
-                💚 Enviar propuesta de ayuda
-            </button>
-
-        </div>
-
-    `;
-
-    document.body.appendChild(formulario);
-}
-
-function mostrarCompartirCaso(nombreAnimal) {
-
-    document
-        .querySelectorAll(".modal-ayuda")
-        .forEach(modal => modal.remove());
-
-    const compartir = document.createElement("div");
-
-    compartir.classList.add("modal-ayuda");
-
-    compartir.innerHTML = `
-
-        <div class="contenido-ayuda">
-
-            <button
-                class="cerrar-ayuda"
-                onclick="this.parentElement.parentElement.remove()">
-                ×
-            </button>
-
-            <h2>📢 Compartir caso</h2>
-
-            <p>
-                Ayuda a que más personas conozcan el caso de
-                <strong>${nombreAnimal}</strong> 🐾
-            </p>
-
-            <button
-                onclick="compartirWhatsApp('${nombreAnimal}')">
-                🟢 Compartir por WhatsApp
-            </button>
-
-            <button
-                onclick="compartirFacebook('${nombreAnimal}')">
-                🔵 Compartir en Facebook
-            </button>
-
-            <button
-                onclick="copiarEnlaceCaso('${nombreAnimal}')">
-                🔗 Copiar enlace del caso
-            </button>
-
-            <button
-                onclick="compartirNativo('${nombreAnimal}')">
-                📱 Más opciones para compartir
-            </button>
-
-        </div>
-
-    `;
-
-    document.body.appendChild(compartir);
-}
-
-function compartirWhatsApp(nombreAnimal) {
-
-    const texto =
-        `🐾 Ayuda Animal\n\n` +
-        `${nombreAnimal} necesita ayuda.\n\n` +
-        `Mira su caso y descubre cómo puedes ayudar. 🐶🐱`;
-
-    const enlace =
-        window.location.href;
-
-    const mensaje =
-        encodeURIComponent(
-            texto + "\n\n" + enlace
-        );
-
-    window.open(
-        `https://wa.me/?text=${mensaje}`,
-        "_blank"
-    );
-}
-
-
-function copiarEnlaceCaso(nombreAnimal) {
-
-    const enlace =
-        window.location.href;
-
-    navigator.clipboard.writeText(enlace)
-        .then(() => {
-
-            alert(
-                "🔗 ¡Enlace copiado!\n\n" +
-                "Ya puedes pegarlo en WhatsApp, Instagram, Facebook o donde quieras compartir el caso de " +
-                nombreAnimal +
-                ". 🐾"
-            );
-
-        })
-        .catch(() => {
-
-            alert(
-                "⚠️ No se pudo copiar automáticamente el enlace."
-            );
-
-        });
-}
-
-async function enviarPropuestaAyuda(tipoAyuda, nombreAnimal) {
-
-    const dato =
-        document.getElementById("datoAyuda")?.value.trim() || "";
-
-    const fecha =
-        document.getElementById("fechaAyuda")?.value.trim() || "";
-
-    const lugar =
-        document.getElementById("lugarAyuda")?.value.trim() || "";
-
-    if (!dato && !fecha && !lugar) {
-
-        alert(
-            "🐾 Cuéntanos al menos un poco sobre cómo piensas ayudar."
-        );
-
-        return;
+    .stat strong {
+        font-size: 1.8rem;
     }
 
-    // Guardar también localmente
-    const ayudas =
-        JSON.parse(
-            localStorage.getItem("ayudasAnimales")
-        ) || [];
-
-    const nuevaAyuda = {
-
-        animal: nombreAnimal,
-
-        tipo: tipoAyuda,
-
-        informacion: dato,
-
-        fechaAyuda: fecha,
-
-        lugar: lugar,
-
-        fechaRegistro:
-            new Date().toLocaleString()
-
-    };
-
-    ayudas.push(nuevaAyuda);
-
-    localStorage.setItem(
-        "ayudasAnimales",
-        JSON.stringify(ayudas)
-    );
-
-
-    // 💾 Guardar propuesta en Supabase
-
-    try {
-
-        const respuesta =
-            await fetch(
-                `${SUPABASE_URL}/rest/v1/ayudas_animales`,
-                {
-                    method: "POST",
-
-                    headers: {
-                        "apikey": SUPABASE_KEY,
-
-                        "Authorization":
-                            `Bearer ${SUPABASE_KEY}`,
-
-                        "Content-Type":
-                            "application/json",
-
-                        "Prefer":
-                            "return=representation"
-                    },
-
-                    body: JSON.stringify({
-
-                        animal_nombre:
-                            nombreAnimal,
-
-                        tipo_ayuda:
-                            tipoAyuda,
-
-                        informacion:
-                            dato,
-
-                        fecha_ayuda:
-                            fecha,
-
-                        lugar:
-                            lugar
-
-                    })
-                }
-            );
-
-
-        const resultado =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "❌ Error guardando propuesta:",
-                resultado
-            );
-
-            alert(
-                "⚠️ La propuesta quedó guardada en este navegador, pero no se pudo guardar en la base de datos."
-            );
-
-        } else {
-
-            console.log(
-                "💚 Propuesta guardada en Supabase:",
-                resultado
-            );
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "❌ Error conectando con Supabase:",
-            error
-        );
-
-        alert(
-            "⚠️ No se pudo conectar con la base de datos."
-        );
+    .info-box {
+        padding: 25px;
     }
 
-
-    // Mostrar la propuesta inmediatamente
-
-    const tarjetas =
-        document.querySelectorAll(".animal");
-
-
-    tarjetas.forEach(tarjeta => {
-
-        const titulo =
-            tarjeta.querySelector("h3");
-
-        if (!titulo) return;
-
-
-        if (
-            titulo.textContent
-                .toLowerCase()
-                .includes(
-                    nombreAnimal.toLowerCase()
-                )
-        ) {
-
-            let propuestas =
-                tarjeta.querySelector(
-                    ".propuestas-ayuda"
-                );
-
-
-            if (!propuestas) {
-
-                propuestas =
-                    document.createElement("div");
-
-                propuestas.classList.add(
-                    "propuestas-ayuda"
-                );
-
-                tarjeta.appendChild(
-                    propuestas
-                );
-            }
-
-
-            const propuesta =
-                document.createElement("div");
-
-            propuesta.classList.add(
-                "propuesta-ayuda"
-            );
-
-
-            propuesta.innerHTML = `
-
-                <strong>
-                    ${tipoAyuda}
-                </strong>
-
-                ${
-                    dato
-                    ? `<p>📝 ${dato}</p>`
-                    : ""
-                }
-
-                ${
-                    fecha
-                    ? `<p>📅 ${fecha}</p>`
-                    : ""
-                }
-
-                ${
-                    lugar
-                    ? `<p>📍 ${lugar}</p>`
-                    : ""
-                }
-
-            `;
-
-
-            propuestas.appendChild(
-                propuesta
-            );
-        }
-
-    });
-
-
-    // Cerrar ventana
-
-    document
-        .querySelectorAll(".modal-ayuda")
-        .forEach(
-            modal => modal.remove()
-        );
-
-
-    alert(
-        "💚 ¡Gracias por querer ayudar a " +
-        nombreAnimal +
-        "!\n\n" +
-        "Tu propuesta quedó registrada."
-    );
-}
-
-
-// ==========================================
-// SELECCIONAR FORMA DE AYUDA
-// ==========================================
-
-function seleccionarAyuda(tipoAyuda, nombreAnimal) {
-
-    // Guardar la ayuda
-    const ayudas =
-        JSON.parse(
-            localStorage.getItem("ayudasAnimales")
-        ) || [];
-
-    ayudas.push({
-        animal: nombreAnimal,
-        tipo: tipoAyuda,
-        fecha: new Date().toLocaleString()
-    });
-
-    localStorage.setItem(
-        "ayudasAnimales",
-        JSON.stringify(ayudas)
-    );
-
-
-    // Contar cuántas personas han ofrecido esta ayuda
-    const cantidad =
-        ayudas.filter(
-            ayuda =>
-                ayuda.animal === nombreAnimal &&
-                ayuda.tipo === tipoAyuda
-        ).length;
-
-
-    // Buscar la tarjeta del animal
-    const tarjetas =
-        document.querySelectorAll(".animal");
-
-    tarjetas.forEach(tarjeta => {
-
-        const titulo =
-            tarjeta.querySelector("h3");
-
-        if (!titulo) return;
-
-
-        // Comprobar que sea el animal correcto
-        if (
-            titulo.textContent
-                .toLowerCase()
-                .includes(nombreAnimal.toLowerCase())
-        ) {
-
-            // Buscar si ya existe el mensaje
-            let mensaje =
-                tarjeta.querySelector(".ayuda-registrada");
-
-
-            // Si no existe, crearlo
-            if (!mensaje) {
-
-                mensaje =
-                    document.createElement("div");
-
-                mensaje.classList.add(
-                    "ayuda-registrada"
-                );
-
-                tarjeta.appendChild(mensaje);
-            }
-
-
-            // Mostrar la ayuda
-            mensaje.textContent =
-                tipoAyuda +
-                " · " +
-                cantidad +
-                (
-                    cantidad === 1
-                        ? " persona ayudando"
-                        : " personas ayudando"
-                );
-
-        }
-
-    });
-
-
-    // Cerrar la ventana de opciones
-    document
-        .querySelectorAll(".modal-ayuda")
-        .forEach(modal => modal.remove());
-
-
-    alert(
-        "🐾 ¡Gracias por ayudar a " +
-        nombreAnimal +
-        "!\n\n" +
-        tipoAyuda +
-        "\n\n" +
-        "Tu ayuda quedó registrada. 💗"
-    );
-
-}
-// ==========================================
-// INFORMACIÓN DE ADOPCIÓN
-// ==========================================
-
-const botonesAnimal = document.querySelectorAll(".info-animal");
-
-const informacionAnimales = {
-
-    "chiwa": {
-        nombre: "Chiwa",
-        emoji: "🐈",
-        edad: "1 año",
-        sexo: "Hembra",
-        tamaño: "Pequeña",
-        salud: "Buen estado de salud",
-        personalidad: "Tranquila y cariñosa",
-        historia: "Chiwa busca una familia responsable que pueda darle un hogar estable y mucho cariño."
-    },
-
-    "Michi": {
-        nombre: "Michi",
-        emoji: "🐱",
-        edad: "1 año",
-        sexo: "No especificado",
-        tamaño: "Pequeño",
-        salud: "Necesita atención veterinaria",
-        personalidad: "Curioso y juguetón",
-        historia: "Michi está buscando una familia responsable que pueda cuidarlo y darle un hogar seguro."
-    },
-
-    "Max": {
-        nombre: "Max",
-        emoji: "🐶",
-        edad: "3 años",
-        sexo: "Macho",
-        tamaño: "Mediano",
-        salud: "No especificada",
-        personalidad: "Cariñoso y activo",
-        historia: "Max necesita un hogar donde pueda recibir atención, cuidados y mucho cariño."
-    }
-
-};
-
-
-botonesAnimal.forEach(boton => {
-
-    boton.addEventListener("click", () => {
-
-        const nombre = boton.dataset.animal;
-
-        const animal = informacionAnimales[nombre];
-
-        if (!animal) return;
-
-        mostrarInformacionAnimal(animal);
-
-    });
-
-});
-
-
-function mostrarInformacionAnimal(animal) {
-
-    const modal = document.createElement("div");
-
-    modal.classList.add("modal-adopcion");
-
-    modal.innerHTML = `
-
-        <div class="contenido-adopcion">
-
-            <button class="cerrar-adopcion">
-                ×
-            </button>
-
-            <div class="adopcion-emoji">
-                ${animal.emoji}
-            </div>
-
-            <span class="tag">
-                🏠 En adopción
-            </span>
-
-            <h2>${animal.nombre}</h2>
-
-            <p>
-                <strong>🎂 Edad:</strong>
-                ${animal.edad}
-            </p>
-
-            <p>
-                <strong>⚧️ Sexo:</strong>
-                ${animal.sexo}
-            </p>
-
-            <p>
-                <strong>📏 Tamaño:</strong>
-                ${animal.tamaño}
-            </p>
-
-            <p>
-                <strong>🩺 Salud:</strong>
-                ${animal.salud}
-            </p>
-
-            <p>
-                <strong>💗 Personalidad:</strong>
-                ${animal.personalidad}
-            </p>
-
-            <p>
-                <strong>📖 Historia:</strong>
-                ${animal.historia}
-            </p>
-
-            <button class="boton-adoptar">
-                🏠 Quiero adoptar a ${animal.nombre}
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-
-    // Cerrar botón
-
-    modal.querySelector(".cerrar-adopcion")
-        .addEventListener("click", () => {
-
-            modal.remove();
-
-        });
-
-
-    // Cerrar haciendo clic afuera
-
-    modal.addEventListener("click", (evento) => {
-
-        if (evento.target === modal) {
-
-            modal.remove();
-
-        }
-
-    });
-
-
-    // Botón de adoptar
-
-  modal.querySelector(".boton-adoptar")
-    .addEventListener("click", () => {
-
-        modal.remove();
-
-        mostrarFormularioAdopcion(animal);
-
-    });
-}
-// ==========================================
-// FORMULARIO DE ADOPCIÓN
-// ==========================================
-
-function mostrarFormularioAdopcion(animal) {
-
-    const modal = document.createElement("div");
-
-    modal.classList.add("modal-adopcion");
-
-    modal.innerHTML = `
-
-        <div class="contenido-adopcion">
-
-            <button class="cerrar-adopcion">
-                ×
-            </button>
-
-            <div class="adopcion-emoji">
-                ${animal.emoji}
-            </div>
-
-            <h2>Quiero adoptar a ${animal.nombre}</h2>
-
-            <p>
-                Cuéntanos un poco sobre ti para conocer tu solicitud.
-            </p>
-
-            <form id="formularioAdopcion">
-
-                <label>
-                    👤 Tu nombre
-                    <input
-                        type="text"
-                        id="nombreAdoptante"
-                        required
-                    >
-                </label>
-
-                <label>
-                    🎂 Tu edad
-                    <input
-                        type="number"
-                        id="edadAdoptante"
-                        min="1"
-                        required
-                    >
-                </label>
-
-                <label>
-                    📱 Teléfono o medio de contacto
-                    <input
-                        type="text"
-                        id="contactoAdoptante"
-                        required
-                    >
-                </label>
-
-                <label>
-                    📍 Ciudad o zona
-                    <input
-                        type="text"
-                        id="zonaAdoptante"
-                        required
-                    >
-                </label>
-
-                <label>
-                    🏠 ¿Dónde viviría el animal?
-                    <select id="viviendaAdoptante" required>
-
-                        <option value="">
-                            Selecciona una opción
-                        </option>
-
-                        <option value="Casa">
-                            🏡 Casa
-                        </option>
-
-                        <option value="Apartamento">
-                            🏢 Apartamento
-                        </option>
-
-                        <option value="Otro">
-                            🏠 Otro
-                        </option>
-
-                    </select>
-                </label>
-
-                <label>
-                    🐾 ¿Tienes otros animales?
-                    <select id="otrosAnimales" required>
-
-                        <option value="">
-                            Selecciona una opción
-                        </option>
-
-                        <option value="Si">
-                            Sí
-                        </option>
-
-                        <option value="No">
-                            No
-                        </option>
-
-                    </select>
-                </label>
-
-                <label>
-                    💗 ¿Por qué quieres adoptar a ${animal.nombre}?
-
-                    <textarea
-                        id="motivoAdopcion"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                </label>
-
-                <button
-                    type="submit"
-                    class="boton-adoptar"
-                >
-                    🐾 Enviar solicitud
-                </button>
-
-            </form>
-
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-
-
-    // CERRAR
-
-    modal.querySelector(".cerrar-adopcion")
-        .addEventListener("click", () => {
-
-            modal.remove();
-
-        });
-
-
-    // CERRAR AL HACER CLIC AFUERA
-
-    modal.addEventListener("click", (evento) => {
-
-        if (evento.target === modal) {
-
-            modal.remove();
-
-        }
-
-    });
-
-
-    // ENVIAR SOLICITUD
-
-    const formulario =
-        modal.querySelector("#formularioAdopcion");
-
-
-    formulario.addEventListener("submit", (evento) => {
-
-        evento.preventDefault();
-
-
-        const solicitud = {
-
-            animal: animal.nombre,
-
-            nombre:
-                document.getElementById("nombreAdoptante").value,
-
-            edad:
-                document.getElementById("edadAdoptante").value,
-
-            contacto:
-                document.getElementById("contactoAdoptante").value,
-
-            zona:
-                document.getElementById("zonaAdoptante").value,
-
-            vivienda:
-                document.getElementById("viviendaAdoptante").value,
-
-            otrosAnimales:
-                document.getElementById("otrosAnimales").value,
-
-            motivo:
-                document.getElementById("motivoAdopcion").value,
-
-            fecha: new Date().toLocaleString()
-
-        };
-
-
-        const solicitudes =
-            JSON.parse(
-                localStorage.getItem("solicitudesAdopcion")
-            ) || [];
-
-
-        solicitudes.push(solicitud);
-
-
-        localStorage.setItem(
-            "solicitudesAdopcion",
-            JSON.stringify(solicitudes)
-        );
-
-
-        modal.remove();
-
-
-        alert(
-            "🐾 ¡Solicitud enviada!\n\n" +
-            "Tu solicitud para adoptar a " +
-            animal.nombre +
-            " quedó guardada."
-        );
-
-    });
-
-}
-// ==========================================
-// INFORMACIÓN DE REFUGIOS
-// ==========================================
-
-const botonesRefugio = document.querySelectorAll(".refugio-btn");
-
-const informacionRefugios = {
-
-    "Huellitas de Esperanza": {
-        nombre: "Huellitas de Esperanza",
-        emoji: "🏠",
-        ubicacion: "Zona urbana",
-        animales: "Perros y gatos",
-        horario: "Lunes a sábado · 8:00 a.m. - 5:00 p.m.",
-        contacto: "Contacto disponible próximamente",
-        descripcion:
-            "Refugio dedicado al cuidado temporal de perros y gatos rescatados que necesitan protección, alimento y atención."
-    },
-
-    "Patitas Unidas": {
-        nombre: "Patitas Unidas",
-        emoji: "🐾",
-        ubicacion: "Cerca de tu zona",
-        animales: "Perros y gatos rescatados",
-        horario: "Lunes a domingo · 9:00 a.m. - 6:00 p.m.",
-        contacto: "Contacto disponible próximamente",
-        descripcion:
-            "Organización dedicada al rescate de animales y a encontrar familias responsables para ellos."
-    },
-
-    "Un Hogar para Todos": {
-        nombre: "Un Hogar para Todos",
-        emoji: "❤️",
-        ubicacion: "Zona metropolitana",
-        animales: "Perros y gatos",
-        horario: "Martes a domingo · 9:00 a.m. - 4:00 p.m.",
-        contacto: "Contacto disponible próximamente",
-        descripcion:
-            "Espacio de apoyo para animales que necesitan un hogar temporal mientras encuentran una familia."
-    }
-
-};
-
-
-botonesRefugio.forEach(boton => {
-
-    boton.addEventListener("click", () => {
-
-        const nombre = boton.dataset.refugio;
-
-        const refugio = informacionRefugios[nombre];
-
-        if (!refugio) return;
-
-        mostrarInformacionRefugio(refugio);
-
-    });
-
-});
-
-
-function mostrarInformacionRefugio(refugio) {
-
-    const modal = document.createElement("div");
-
-    modal.classList.add("modal-refugio");
-
-    modal.innerHTML = `
-
-        <div class="contenido-refugio">
-
-            <button class="cerrar-refugio">
-                ×
-            </button>
-
-            <div class="refugio-emoji">
-                ${refugio.emoji}
-            </div>
-
-            <span class="tag">
-                🏠 Refugio
-            </span>
-
-            <h2>${refugio.nombre}</h2>
-
-            <p>
-                ${refugio.descripcion}
-            </p>
-
-            <div class="datos-refugio">
-
-                <p>
-                    📍 <strong>Ubicación:</strong>
-                    ${refugio.ubicacion}
-                </p>
-
-                <p>
-                    🐾 <strong>Animales:</strong>
-                    ${refugio.animales}
-                </p>
-
-                <p>
-                    🕐 <strong>Horario:</strong>
-                    ${refugio.horario}
-                </p>
-
-                <p>
-                    📞 <strong>Contacto:</strong>
-                    ${refugio.contacto}
-                </p>
-
-            </div>
-
-            <button class="boton-ayudar-refugio">
-                💗 Quiero ayudar a este refugio
-            </button>
-
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-
-
-    // CERRAR
-
-    modal.querySelector(".cerrar-refugio")
-        .addEventListener("click", () => {
-
-            modal.remove();
-
-        });
-
-
-    // CERRAR AL HACER CLIC AFUERA
-
-    modal.addEventListener("click", (evento) => {
-
-        if (evento.target === modal) {
-
-            modal.remove();
-
-        }
-
-    });
-
-
-    // BOTÓN AYUDAR
-
-    modal.querySelector(".boton-ayudar-refugio")
-        .addEventListener("click", () => {
-
-            alert(
-                "🐾 ¡Gracias por querer ayudar!\n\n" +
-                "Más adelante podremos agregar opciones como " +
-                "donar alimento, ofrecer transporte o ayudar con recursos."
-            );
-
-        });
-
-}
-// ==========================================
-// BUSCAR Y FILTRAR ANIMALES
-// ==========================================
-
-const buscarAnimal =
-    document.getElementById("buscarAnimal");
-
-const filtroTipo =
-    document.getElementById("filtroTipo");
-
-const filtroNecesidad =
-    document.getElementById("filtroNecesidad");
-
-const limpiarFiltros =
-    document.getElementById("limpiarFiltros");
-
-
-// ==========================================
-// CREAR LISTA GENERAL DE ANIMALES
-// ==========================================
-
-function obtenerTodosLosAnimales() {
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-
-    // Convertimos los animales de ejemplo
-    // al mismo formato que las publicaciones
-
-    const animalesEjemplo = animales.map(animal => {
-
-        return {
-
-            id: "ejemplo-" + animal.nombre,
-
-            nombre: animal.nombre,
-
-            tipo: animal.tipo,
-
-            edad: "No especificada",
-
-            sexo: "No especificado",
-
-            tamano: "No especificado",
-
-            necesidad: animal.necesidad,
-
-            zona: animal.zona,
-
-            salud: "No especificada",
-
-            descripcion:
-                "Este es un animal de ejemplo para probar la página.",
-
-            foto: "",
-
-            ejemplo: true,
-
-            latitud: animal.latitud,
-
-            longitud: animal.longitud
-
-        };
-
-    });
-
-
-    // Unimos ejemplos + publicaciones reales
-
-    return [
-        ...animalesEjemplo,
-        ...publicaciones
-    ];
-
-}
-
-
-// ==========================================
-// APLICAR FILTROS
-// ==========================================
-
-function aplicarFiltros() {
-
-    const texto =
-        buscarAnimal
-            ? buscarAnimal.value.toLowerCase().trim()
-            : "";
-
-    const tipo =
-        filtroTipo
-            ? filtroTipo.value.toLowerCase()
-            : "todos";
-
-    const necesidad =
-        filtroNecesidad
-            ? filtroNecesidad.value.toLowerCase()
-            : "todas";
-
-
-    const todosLosAnimales =
-        obtenerTodosLosAnimales();
-
-
-    const animalesFiltrados =
-        todosLosAnimales.filter(animal => {
-
-            const nombre =
-                (animal.nombre || "").toLowerCase();
-
-            const zona =
-                (animal.zona || "").toLowerCase();
-
-            const tipoAnimal =
-                (animal.tipo || "").toLowerCase();
-
-            const necesidadAnimal =
-                (animal.necesidad || "").toLowerCase();
-
-
-            // ==================================
-            // BUSCADOR
-            // ==================================
-
-            const coincideTexto =
-                texto === "" ||
-                nombre.includes(texto) ||
-                zona.includes(texto) ||
-                tipoAnimal.includes(texto) ||
-                necesidadAnimal.includes(texto);
-
-
-            // ==================================
-            // FILTRO DE TIPO
-            // ==================================
-
-            const coincideTipo =
-                tipo === "todos" ||
-                tipoAnimal === tipo;
-
-
-            // ==================================
-            // FILTRO DE NECESIDAD
-            // ==================================
-
-            let coincideNecesidad = true;
-
-
-            if (necesidad === "alimento") {
-
-                coincideNecesidad =
-                    necesidadAnimal.includes("alimento");
-
-            }
-
-
-            if (necesidad === "veterinario") {
-
-                coincideNecesidad =
-                    necesidadAnimal.includes("veterinaria") ||
-                    necesidadAnimal.includes("veterinario");
-
-            }
-
-
-            if (necesidad === "hogar") {
-
-                coincideNecesidad =
-                    necesidadAnimal.includes("hogar");
-
-            }
-
-
-            return (
-                coincideTexto &&
-                coincideTipo &&
-                coincideNecesidad
-            );
-
-        });
-
-
-    mostrarResultadosFiltrados(animalesFiltrados);
-
-}
-
-
-// ==========================================
-// MOSTRAR RESULTADOS FILTRADOS
-// ==========================================
-
-function mostrarResultadosFiltrados(animalesFiltrados) {
-
-    const resultados =
-        document.getElementById("resultados");
-
-    if (!resultados) return;
-
-
-    resultados.innerHTML = "";
-
-
-    if (animalesFiltrados.length === 0) {
-
-        resultados.innerHTML = `
-
-            <div class="sin-resultados">
-
-                <div>🐾</div>
-
-                <h3>No encontramos animales</h3>
-
-                <p>
-                    Intenta cambiar la búsqueda o los filtros.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    animalesFiltrados.forEach(animal => {
-
-        // ==================================
-        // ANIMALES DE EJEMPLO
-        // ==================================
-
-        if (animal.ejemplo) {
-
-            mostrarAnimalEjemplo(animal);
-
-        }
-
-        // ==================================
-        // PUBLICACIONES REALES
-        // ==================================
-
-        else {
-
-            mostrarPublicacion(animal);
-
-        }
-
-    });
-
-}
-
-
-// ==========================================
-// MOSTRAR ANIMAL DE EJEMPLO
-// ==========================================
-
-function mostrarAnimalEjemplo(animal) {
-
-    const resultados =
-        document.getElementById("resultados");
-
-    if (!resultados) return;
-
-
-    const tarjeta =
-        document.createElement("div");
-
-    tarjeta.classList.add("animal");
-
-
-    tarjeta.innerHTML = `
-
-        <div class="sin-foto animal-foto-publicacion">
-            🐾
-        </div>
-
-        <span class="tag">
-            Ejemplo
-        </span>
-
-        <h3>
-            🐾 ${animal.nombre}
-        </h3>
-
-        <p>
-            <strong>🐾 Tipo:</strong>
-            ${animal.tipo}
-        </p>
-
-        <p>
-            <strong>❤️ Necesita:</strong>
-            ${animal.necesidad}
-        </p>
-
-        <p>
-            <strong>📍 Zona:</strong>
-            ${animal.zona}
-        </p>
-
-        <p>
-            ℹ️ Este animal es solo un ejemplo
-            para probar el funcionamiento de la página.
-        </p>
-
-        <button
-            class="ayudar-btn"
-            onclick="mostrarOpcionesAyuda('${animal.nombre}')"
-        >
-            ❤️ Quiero ayudar
-        </button>
-
-    `;
-
-
-    resultados.appendChild(tarjeta);
-
-}
-
-
-// ==========================================
-// EVENTOS DEL BUSCADOR
-// ==========================================
-
-if (buscarAnimal) {
-
-    buscarAnimal.addEventListener(
-        "input",
-        aplicarFiltros
-    );
-
-}
-
-
-if (filtroTipo) {
-
-    filtroTipo.addEventListener(
-        "change",
-        aplicarFiltros
-    );
-
-}
-
-
-if (filtroNecesidad) {
-
-    filtroNecesidad.addEventListener(
-        "change",
-        aplicarFiltros
-    );
-
-}
-
-
-if (limpiarFiltros) {
-
-    limpiarFiltros.addEventListener(
-        "click",
-        () => {
-
-            if (buscarAnimal) {
-                buscarAnimal.value = "";
-            }
-
-            if (filtroTipo) {
-                filtroTipo.value = "todos";
-            }
-
-            if (filtroNecesidad) {
-                filtroNecesidad.value = "todas";
-            }
-
-            aplicarFiltros();
-
-        }
-    );
-
-}
-// ==========================================
-// OPCIONES DE PUBLICACIÓN
-// ==========================================
-
-function mostrarOpcionesPublicacion(id) {
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-    let animal =
-        publicaciones.find(
-            publicacion => publicacion.id === id
-        );
-
-    /*
-    Si la publicación viene de Supabase
-    y todavía no existe en localStorage,
-    buscamos la tarjeta que corresponde al ID.
-    */
-
-    if (!animal) {
-
-        const tarjeta =
-            document.querySelector(
-                `.opciones-btn[data-id="${id}"]`
-            );
-
-        if (!tarjeta) {
-            console.log(
-                "❌ No se encontró la publicación:",
-                id
-            );
-            return;
-        }
-
-        const tarjetaAnimal =
-            tarjeta.closest(".animal");
-
-        if (!tarjetaAnimal) return;
-
-        const nombre =
-            tarjetaAnimal.querySelector("h3");
-
-        animal = {
-            id: id,
-            nombre: nombre
-                ? nombre.textContent.replace("🐾", "").trim()
-                : "este animal"
-        };
-    }
-
-    const opciones =
-        document.createElement("div");
-
-    opciones.classList.add("modal-opciones");
-
-    opciones.innerHTML = `
-
-        <div class="contenido-opciones">
-
-            <button
-                class="cerrar-opciones"
-                onclick="this.parentElement.parentElement.remove()">
-                ×
-            </button>
-
-            <h2>⚙️ Opciones de ${animal.nombre}</h2>
-
-            <p>
-                ¿Qué quieres hacer con esta publicación?
-            </p>
-
-            <button
-                onclick="cambiarEstadoPublicacion(${id}, 'en_proceso')">
-                🟡 Marcar como ayuda en proceso
-            </button>
-
-            <button
-                onclick="cambiarEstadoPublicacion(${id}, 'solucionado')">
-                ✅ Marcar como solucionado
-            </button>
-
-            <button
-                onclick="editarPublicacion(${id})">
-                ✏️ Editar publicación
-            </button>
-
-            <button
-                onclick="eliminarPublicacion(${id})">
-                🗑️ Eliminar publicación
-            </button>
-
-        </div>
-    `;
-
-    document.body.appendChild(opciones);
-}
-async function cambiarEstadoPublicacion(id, nuevoEstado) {
-
-    // ==========================================
-    // ACTUALIZAR LOCALMENTE
-    // ==========================================
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-    const animal =
-        publicaciones.find(
-            publicacion => publicacion.id === id
-        );
-
-    if (animal) {
-        animal.estado = nuevoEstado;
-
-        localStorage.setItem(
-            "publicacionesAnimales",
-            JSON.stringify(publicaciones)
-        );
-    }
-
-
-    // ==========================================
-    // ACTUALIZAR EN SUPABASE
-    // ==========================================
-
-    try {
-
-        const respuesta = await fetch(
-            `${SUPABASE_URL}/rest/v1/publicaciones_animales?id=eq.${id}`,
-            {
-                method: "PATCH",
-
-                headers: {
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
-                    "Content-Type": "application/json",
-                    "Prefer": "return=representation"
-                },
-
-                body: JSON.stringify({
-                    estado: nuevoEstado
-                })
-            }
-        );
-
-
-        const resultado =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "❌ Error actualizando estado en Supabase:",
-                resultado
-            );
-
-            alert(
-                "⚠️ El estado cambió localmente, pero no se pudo actualizar en la base de datos."
-            );
-
-        } else {
-
-            console.log(
-                "🐾 Estado actualizado en Supabase:",
-                resultado
-            );
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "❌ Error conectando con Supabase:",
-            error
-        );
-
-    }
-
-
-    // ==========================================
-    // CERRAR MENÚ
-    // ==========================================
-
-    document
-        .querySelectorAll(".modal-opciones")
-        .forEach(modal => modal.remove());
-
-
-    // ==========================================
-    // ACTUALIZAR LA PANTALLA
-    // ==========================================
-
-    const resultados =
-        document.getElementById("resultados");
-
-    if (resultados) {
-
-        resultados.innerHTML = "";
-
-        cargarPublicaciones();
-
-    }
-
-
-    // ==========================================
-    // MENSAJE
-    // ==========================================
-
-    if (nuevoEstado === "en_proceso") {
-
-        alert(
-            "🟡 La publicación ahora aparece como ayuda en proceso."
-        );
-
-    }
-
-
-    if (nuevoEstado === "solucionado") {
-
-        alert(
-            "🎉 ¡Caso solucionado!\n\n" +
-            "Gracias por ayudar a que este animal esté mejor. 🐾"
-        );
-
+    .modal-content {
+        padding: 25px;
     }
 
 }
-async function eliminarPublicacion(id) {
+/* =========================
+   FOTO DE PUBLICACIÓN
+========================= */
 
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
+.vista-previa-foto {
+    width: 100%;
+    height: 220px;
+    margin-top: 10px;
+    border: 3px dashed #8b5cf6;
+    border-radius: 20px;
+    background: #fff8e8;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    const animal =
-        publicaciones.find(
-            publicacion => publicacion.id === id
-        );
-
-
-    if (!animal) {
-
-        console.log(
-            "❌ No se encontró la publicación:",
-            id
-        );
-
-        return;
-    }
-
-
-    // ==========================================
-    // CONFIRMAR ELIMINACIÓN
-    // ==========================================
-
-    const confirmar =
-        confirm(
-            "¿Seguro que quieres eliminar la publicación de " +
-            animal.nombre +
-            "?\n\nEsta acción no se puede deshacer."
-        );
-
-
-    if (!confirmar) return;
-
-
-    // ==========================================
-    // ELIMINAR DE SUPABASE
-    // ==========================================
-
-    try {
-
-        const respuesta = await fetch(
-            `${SUPABASE_URL}/rest/v1/publicaciones_animales?id=eq.${id}`,
-            {
-                method: "DELETE",
-
-                headers: {
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
-                    "Prefer": "return=representation"
-                }
-            }
-        );
-
-
-        const resultado =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "❌ Error eliminando de Supabase:",
-                resultado
-            );
-
-            alert(
-                "⚠️ No se pudo eliminar la publicación de la base de datos."
-            );
-
-            return;
-        }
-
-
-        console.log(
-            "🗑️ Publicación eliminada de Supabase:",
-            resultado
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "❌ Error conectando con Supabase:",
-            error
-        );
-
-        alert(
-            "⚠️ No se pudo conectar con Supabase."
-        );
-
-        return;
-    }
-
-
-    // ==========================================
-    // ELIMINAR LOCALMENTE
-    // ==========================================
-
-    const nuevasPublicaciones =
-        publicaciones.filter(
-            publicacion => publicacion.id !== id
-        );
-
-
-    localStorage.setItem(
-        "publicacionesAnimales",
-        JSON.stringify(nuevasPublicaciones)
-    );
-
-
-    // ==========================================
-    // CERRAR MENÚ
-    // ==========================================
-
-    document
-        .querySelectorAll(".modal-opciones")
-        .forEach(modal => modal.remove());
-
-
-    // ==========================================
-    // ACTUALIZAR PANTALLA
-    // ==========================================
-
-    const resultados =
-        document.getElementById("resultados");
-
-
-    if (resultados) {
-
-        resultados.innerHTML = "";
-
-        cargarPublicaciones();
-
-    }
-
-
-    actualizarEstadisticas();
-
-
-    alert(
-        "🗑️ La publicación de " +
-        animal.nombre +
-        " fue eliminada correctamente."
-    );
-
+    overflow: hidden;
+    text-align: center;
+    color: #777;
 }
-async function editarPublicacion(id) {
 
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-    // Buscar primero en localStorage
-    let animal =
-        publicaciones.find(
-            publicacion => publicacion.id === id
-        );
-
-
-    // Si no está localmente, buscarlo en Supabase
-    if (!animal) {
-
-        try {
-
-            const respuesta = await fetch(
-                `${SUPABASE_URL}/rest/v1/publicaciones_animales?id=eq.${id}&select=*`,
-                {
-                    method: "GET",
-
-                    headers: {
-                        "apikey": SUPABASE_KEY,
-                        "Authorization": `Bearer ${SUPABASE_KEY}`
-                    }
-                }
-            );
-
-
-            const resultado =
-                await respuesta.json();
-
-
-            if (!respuesta.ok) {
-
-                console.error(
-                    "❌ Error buscando publicación:",
-                    resultado
-                );
-
-                return;
-            }
-
-
-            if (resultado.length === 0) {
-
-                console.log(
-                    "❌ No se encontró la publicación:",
-                    id
-                );
-
-                return;
-            }
-
-
-            const datos = resultado[0];
-
-
-            animal = {
-                id: datos.id,
-                nombre: datos.nombre,
-                tipo: datos.tipo,
-                edad: datos.edad,
-                sexo: datos.sexo,
-                tamano: datos.tamano,
-                necesidad: datos.necesidad,
-                zona: datos.zona,
-                salud: datos.salud,
-                descripcion: datos.descripcion,
-                foto: datos.foto_url,
-                estado: datos.estado
-            };
-
-
-            // Guardarla también localmente
-            publicaciones.push(animal);
-
-            localStorage.setItem(
-                "publicacionesAnimales",
-                JSON.stringify(publicaciones)
-            );
-
-        } catch (error) {
-
-            console.error(
-                "❌ Error conectando con Supabase:",
-                error
-            );
-
-            return;
-        }
-    }
-
-
-    // ==========================================
-    // GUARDAR QUÉ PUBLICACIÓN ESTAMOS EDITANDO
-    // ==========================================
-
-    publicacionEditandoId = id;
-
-
-    // Cerrar menú de opciones
-
-    const modalOpciones =
-        document.querySelector(".modal-opciones");
-
-    if (modalOpciones) {
-        modalOpciones.remove();
-    }
-
-
-    // Abrir formulario
-
-    const modalPublicar =
-        document.getElementById("modalPublicar");
-
-    if (modalPublicar) {
-        modalPublicar.classList.add("activo");
-    }
-
-
-    // ==========================================
-    // RELLENAR FORMULARIO
-    // ==========================================
-
-    document.getElementById("nombreAnimal").value =
-        animal.nombre || "";
-
-    document.getElementById("tipoAnimal").value =
-        animal.tipo || "";
-
-    document.getElementById("edadAnimal").value =
-        animal.edad || "";
-
-    document.getElementById("sexoAnimal").value =
-        animal.sexo || "";
-
-    document.getElementById("tamanoAnimal").value =
-        animal.tamano || "";
-
-    document.getElementById("necesidadAnimal").value =
-        animal.necesidad || "";
-
-    document.getElementById("zonaAnimal").value =
-        animal.zona || "";
-
-    document.getElementById("saludAnimal").value =
-        animal.salud || "";
-
-    document.getElementById("descripcionAnimal").value =
-        animal.descripcion || "";
-
+.vista-previa-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-// ==========================================
-// ESTADÍSTICAS DE AYUDA ANIMAL
-// ==========================================
-
-function actualizarEstadisticas() {
-
-    const publicaciones =
-        JSON.parse(
-            localStorage.getItem("publicacionesAnimales")
-        ) || [];
-
-    const solicitudes =
-        JSON.parse(
-            localStorage.getItem("solicitudesAdopcion")
-        ) || [];
 
 
-    // Casos solucionados
-    const solucionados =
-        publicaciones.filter(
-            animal => animal.estado === "solucionado"
-        ).length;
+/* Foto dentro de las publicaciones */
 
-
-    // Casos que siguen activos
-    const activos =
-        publicaciones.filter(
-            animal => animal.estado !== "solucionado"
-        ).length;
-
-
-    // Solicitudes de adopción
-    const adopciones =
-        solicitudes.length;
-
-
-    // Buscar elementos de las estadísticas
-    const contadorSolucionados =
-        document.getElementById("contadorSolucionados");
-
-    const contadorActivos =
-        document.getElementById("contadorActivos");
-
-    const contadorAdopciones =
-        document.getElementById("contadorAdopciones");
-
-
-    // Actualizar números
-    if (contadorSolucionados) {
-        contadorSolucionados.textContent =
-            solucionados;
-    }
-
-    if (contadorActivos) {
-        contadorActivos.textContent =
-            activos;
-    }
-
-    if (contadorAdopciones) {
-        contadorAdopciones.textContent =
-            adopciones;
-    }
-
+.animal-foto-publicacion {
+    width: 100%;
+    height: 200px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
-actualizarEstadisticas();
 
-console.log("🐾 SCRIPT DE AYUDA ANIMAL CARGADO");
+.animal-foto-publicacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.animal-foto-publicacion {
+    width: 100%;
+    height: 200px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.animal-foto-publicacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sin-foto {
+    background: #cbe9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+/* ==========================================
+   MODAL DE AYUDA
+   ========================================== */
+
+.modal-ayuda {
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    padding: 20px;
+}
+
+.contenido-ayuda {
+    position: relative;
+
+    width: 100%;
+    max-width: 450px;
+
+    background: #fff8e8;
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow: 10px 10px 0 #f05aa6;
+
+    text-align: center;
+}
+
+.contenido-ayuda h2 {
+    margin-bottom: 10px;
+    color: #8b5cf6;
+}
+
+.contenido-ayuda p {
+    margin-bottom: 20px;
+}
+
+.contenido-ayuda button:not(.cerrar-ayuda) {
+    width: 100%;
+    margin: 7px 0;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #cbe9ff;
+    color: #333;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.contenido-ayuda button:not(.cerrar-ayuda):hover {
+    transform: translateY(-3px);
+    background: #ffd6e7;
+}
+
+.cerrar-ayuda {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    color: #8b5cf6;
+}
+/* ==========================================
+   MODAL DE ADOPCIÓN
+   ========================================== */
+
+.modal-adopcion {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.contenido-adopcion {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 10px 10px 0 #f05aa6;
+}
+
+.cerrar-adopcion {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #8b5cf6;
+
+    cursor: pointer;
+}
+
+.adopcion-emoji {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.contenido-adopcion h2 {
+    font-size: 32px;
+    color: #8b5cf6;
+    margin: 10px 0 20px;
+}
+
+.contenido-adopcion p {
+    text-align: left;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.boton-adoptar {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #f05aa6;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.boton-adoptar:hover {
+    transform: translateY(-3px);
+}
+/* ==========================================
+   FORMULARIO DE ADOPCIÓN
+   ========================================== */
+
+#formularioAdopcion {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#formularioAdopcion label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#formularioAdopcion input,
+#formularioAdopcion select,
+#formularioAdopcion textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 7px;
+    padding: 12px;
+
+    border: 2px solid #cbe9ff;
+    border-radius: 12px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+#formularioAdopcion input:focus,
+#formularioAdopcion select:focus,
+#formularioAdopcion textarea:focus {
+    border-color: #8b5cf6;
+}
+
+#formularioAdopcion textarea {
+    resize: vertical;
+}
+/* ==========================================
+   MODAL DE REFUGIOS
+   ========================================== */
+
+.modal-refugio {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.contenido-refugio {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 10px 10px 0 #cdeFD6;
+}
+
+.cerrar-refugio {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #8b5cf6;
+
+    cursor: pointer;
+}
+
+.refugio-emoji {
+    font-size: 75px;
+    margin-bottom: 10px;
+}
+
+.contenido-refugio h2 {
+    color: #8b5cf6;
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.contenido-refugio > p {
+    line-height: 1.6;
+}
+
+.datos-refugio {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #cbe9ff;
+
+    border-radius: 18px;
+
+    text-align: left;
+}
+
+.datos-refugio p {
+    margin: 12px 0;
+}
+
+.boton-ayudar-refugio {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #f05aa6;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.boton-ayudar-refugio:hover {
+    transform: translateY(-3px);
+}
+/* ==========================================
+   BUSCADOR Y FILTROS
+   ========================================== */
+
+.filtros-animales {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 25px auto 30px;
+
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 3px solid #cbe9ff;
+    border-radius: 18px;
+
+    padding: 0 14px;
+
+    min-width: 280px;
+}
+
+.buscador span {
+    font-size: 20px;
+}
+
+.buscador input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    padding: 13px 10px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    background: transparent;
+}
+
+.filtros-animales select {
+    padding: 13px 15px;
+
+    border: 3px solid #cbe9ff;
+    border-radius: 18px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#limpiarFiltros {
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #ffd6e7;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#limpiarFiltros:hover {
+    transform: translateY(-2px);
+    background: #f05aa6;
+    color: white;
+}
+.sin-resultados {
+    width: 100%;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #fff8e8;
+
+    border: 3px dashed #8b5cf6;
+
+    border-radius: 25px;
+
+    margin-top: 20px;
+}
+
+.sin-resultados div {
+    font-size: 50px;
+}
+
+.sin-resultados h3 {
+    color: #8b5cf6;
+    margin: 10px 0;
+}
+/* ==========================================
+   OPCIONES DE PUBLICACIÓN
+   ========================================== */
+
+.modal-opciones {
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 30, 70, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 20px;
+}
+
+.contenido-opciones {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background: #fff8e8;
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 10px 10px 0 #f05aa6;
+}
+
+.contenido-opciones h2 {
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.contenido-opciones p {
+    margin-bottom: 20px;
+}
+
+.contenido-opciones button:not(.cerrar-opciones) {
+    width: 100%;
+    margin: 7px 0;
+    padding: 13px;
+    border: none;
+    border-radius: 15px;
+    background: #cbe9ff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contenido-opciones button:not(.cerrar-opciones):hover {
+    transform: translateY(-3px);
+    background: #ffd6e7;
+}
+
+.contenido-opciones .boton-eliminar {
+    background: #ffb3b3;
+}
+
+.contenido-opciones .boton-eliminar:hover {
+    background: #f05aa6;
+    color: white;
+}
+
+.cerrar-opciones {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    color: #8b5cf6;
+    cursor: pointer;
+}
