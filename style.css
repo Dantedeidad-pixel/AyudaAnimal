@@ -163,19 +163,17 @@ header .btn {
 /* ---------- IMAGEN / ILUSTRACIÓN DEL HERO ---------- */
 
 .hero-image {
-    min-width: 300px;
-    width: 380px;
-    height: 330px;
-    background: #ffd6e7;
-    border: 4px solid #222;
-    border-radius: 45% 55% 50% 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 6rem;
-    transform: rotate(3deg);
-    box-shadow: 10px 10px 0 #8b5cf6;
-    position: relative;
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-image::before {
@@ -290,7 +288,7 @@ section {
 
 .help-card:nth-child(1) {
     background: #ffd6e7;
-    box-shadow: 7px 7px 0 #f05aa6;
+    box-shadow: 7px 7px 0 #deaac4;
 }
 
 .help-card:nth-child(2) {
@@ -1179,4 +1177,521 @@ details p {
     align-items: center;
     justify-content: center;
     font-size: 55px;
+}
+/* ==========================================
+   MODAL DE AYUDA
+   ========================================== */
+
+.modal-ayuda {
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    padding: 20px;
+}
+
+.contenido-ayuda {
+    position: relative;
+
+    width: 100%;
+    max-width: 450px;
+
+    background: #fff8e8;
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow: 10px 10px 0 #f05aa6;
+
+    text-align: center;
+}
+
+.contenido-ayuda h2 {
+    margin-bottom: 10px;
+    color: #8b5cf6;
+}
+
+.contenido-ayuda p {
+    margin-bottom: 20px;
+}
+
+.contenido-ayuda button:not(.cerrar-ayuda) {
+    width: 100%;
+    margin: 7px 0;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #cbe9ff;
+    color: #333;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.contenido-ayuda button:not(.cerrar-ayuda):hover {
+    transform: translateY(-3px);
+    background: #ffd6e7;
+}
+
+.cerrar-ayuda {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    color: #8b5cf6;
+}
+/* ==========================================
+   MODAL DE ADOPCIÓN
+   ========================================== */
+
+.modal-adopcion {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.contenido-adopcion {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 10px 10px 0 #f05aa6;
+}
+
+.cerrar-adopcion {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #8b5cf6;
+
+    cursor: pointer;
+}
+
+.adopcion-emoji {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.contenido-adopcion h2 {
+    font-size: 32px;
+    color: #8b5cf6;
+    margin: 10px 0 20px;
+}
+
+.contenido-adopcion p {
+    text-align: left;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.boton-adoptar {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #f05aa6;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.boton-adoptar:hover {
+    transform: translateY(-3px);
+}
+/* ==========================================
+   FORMULARIO DE ADOPCIÓN
+   ========================================== */
+
+#formularioAdopcion {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#formularioAdopcion label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#formularioAdopcion input,
+#formularioAdopcion select,
+#formularioAdopcion textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 7px;
+    padding: 12px;
+
+    border: 2px solid #cbe9ff;
+    border-radius: 12px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+#formularioAdopcion input:focus,
+#formularioAdopcion select:focus,
+#formularioAdopcion textarea:focus {
+    border-color: #8b5cf6;
+}
+
+#formularioAdopcion textarea {
+    resize: vertical;
+}
+/* ==========================================
+   MODAL DE REFUGIOS
+   ========================================== */
+
+.modal-refugio {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(50, 30, 70, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.contenido-refugio {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #fff8e8;
+
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 10px 10px 0 #cdeFD6;
+}
+
+.cerrar-refugio {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #8b5cf6;
+
+    cursor: pointer;
+}
+
+.refugio-emoji {
+    font-size: 75px;
+    margin-bottom: 10px;
+}
+
+.contenido-refugio h2 {
+    color: #8b5cf6;
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.contenido-refugio > p {
+    line-height: 1.6;
+}
+
+.datos-refugio {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #cbe9ff;
+
+    border-radius: 18px;
+
+    text-align: left;
+}
+
+.datos-refugio p {
+    margin: 12px 0;
+}
+
+.boton-ayudar-refugio {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #f05aa6;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.boton-ayudar-refugio:hover {
+    transform: translateY(-3px);
+}
+/* ==========================================
+   BUSCADOR Y FILTROS
+   ========================================== */
+
+.filtros-animales {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 25px auto 30px;
+
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 3px solid #cbe9ff;
+    border-radius: 18px;
+
+    padding: 0 14px;
+
+    min-width: 280px;
+}
+
+.buscador span {
+    font-size: 20px;
+}
+
+.buscador input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    padding: 13px 10px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    background: transparent;
+}
+
+.filtros-animales select {
+    padding: 13px 15px;
+
+    border: 3px solid #cbe9ff;
+    border-radius: 18px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#limpiarFiltros {
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #ffd6e7;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#limpiarFiltros:hover {
+    transform: translateY(-2px);
+    background: #f05aa6;
+    color: white;
+}
+.sin-resultados {
+    width: 100%;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #fff8e8;
+
+    border: 3px dashed #8b5cf6;
+
+    border-radius: 25px;
+
+    margin-top: 20px;
+}
+
+.sin-resultados div {
+    font-size: 50px;
+}
+
+.sin-resultados h3 {
+    color: #8b5cf6;
+    margin: 10px 0;
+}
+/* ==========================================
+   OPCIONES DE PUBLICACIÓN
+   ========================================== */
+
+.modal-opciones {
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 30, 70, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 20px;
+}
+
+.contenido-opciones {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background: #fff8e8;
+    border: 4px solid #8b5cf6;
+    border-radius: 30px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 10px 10px 0 #f05aa6;
+}
+
+.contenido-opciones h2 {
+    color: #8b5cf6;
+    margin-bottom: 10px;
+}
+
+.contenido-opciones p {
+    margin-bottom: 20px;
+}
+
+.contenido-opciones button:not(.cerrar-opciones) {
+    width: 100%;
+    margin: 7px 0;
+    padding: 13px;
+    border: none;
+    border-radius: 15px;
+    background: #cbe9ff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contenido-opciones button:not(.cerrar-opciones):hover {
+    transform: translateY(-3px);
+    background: #ffd6e7;
+}
+
+.contenido-opciones .boton-eliminar {
+    background: #ffb3b3;
+}
+
+.contenido-opciones .boton-eliminar:hover {
+    background: #f05aa6;
+    color: white;
+}
+
+.cerrar-opciones {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    color: #8b5cf6;
+    cursor: pointer;
 }
