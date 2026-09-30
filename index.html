@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ayuda Animal 🐾</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -73,7 +71,7 @@
 
 
             <div class="hero-image">
-    <img src="imagenes/perro y gato" alt="Perro y gato">
+    <img src="imagenes/animales.jpeg" alt="Perro y gato">
 </div>
 
         </section>
@@ -298,7 +296,7 @@
                         <h3>chiwa</h3>
 
                         <p>
-                            🐕 gata · 1 año
+                            🐕 Gata · 1 año
                         </p>
 
                         <p>
@@ -400,7 +398,64 @@
 
             </div>
 
+<div class="filtros-animales">
 
+    <div class="buscador">
+
+        <span>🔎</span>
+
+        <input
+            type="text"
+            id="buscarAnimal"
+            placeholder="Buscar por nombre o zona..."
+        >
+
+    </div>
+
+
+    <select id="filtroTipo">
+
+        <option value="todos">
+            🐾 Todos los animales
+        </option>
+
+        <option value="perro">
+            🐶 Perros
+        </option>
+
+        <option value="gato">
+            🐱 Gatos
+        </option>
+
+    </select>
+
+
+    <select id="filtroNecesidad">
+
+        <option value="todas">
+            ❤️ Todas las necesidades
+        </option>
+
+        <option value="alimento">
+            🍖 Necesita alimento
+        </option>
+
+        <option value="veterinario">
+            🏥 Atención veterinaria
+        </option>
+
+        <option value="hogar">
+            🏠 Busca un hogar
+        </option>
+
+    </select>
+
+
+    <button id="limpiarFiltros">
+        ✖️ Limpiar
+    </button>
+
+</div>
             <div id="resultados">
 
                 <!-- Aquí JavaScript pondrá los animales cercanos -->
@@ -568,8 +623,7 @@
 
         <!-- ================= PREGUNTAS ================= -->
 
-        <section class="faq">
-
+        <section class="faq" id="faq">
             <div class="section-title">
 
                 <p class="mini-title">💬 PREGUNTAS</p>
@@ -833,12 +887,17 @@
             rows="4"
         ></textarea>
     </label>
-
+```html
     <button type="submit">
         📢 Publicar caso
     </button>
 
 </form>
+
+        </div>
+
+    </div>
+
 
     <!-- ================= JAVASCRIPT ================= -->
 
@@ -847,3 +906,4 @@
 </body>
 
 </html>
+```
