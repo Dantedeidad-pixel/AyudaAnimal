@@ -18,12 +18,25 @@
             🐾 Ayuda Animal
         </a>
 
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#adoptar">Adoptar</a>
-            <a href="#calle">Animales en la calle</a>
-            <a href="#refugios">Refugios</a>
-        </nav>
+        <nav class="menu-2000">
+
+    <a href="#inicio">
+        🏠 Inicio
+    </a>
+
+    <a href="#adoptar">
+        🐶 Adoptar
+    </a>
+
+    <a href="#calle">
+        🐾 Animales en la calle
+    </a>
+
+    <a href="#refugios">
+        🏠 Refugios
+    </a>
+
+</nav>
 
         <button class="btn" id="botonPublicar">
             + Publicar
@@ -75,6 +88,100 @@
 </div>
 
         </section>
+
+        <section class="portal-destacado">
+
+    <div class="portal-titulo">
+        <span>🐾</span>
+        <h2>¡BIENVENID@ A AYUDA ANIMAL!</h2>
+        <span>✨</span>
+    </div>
+
+    <p class="portal-subtitulo">
+        Una página para encontrar animales que necesitan ayuda
+        y conectar con personas que quieren hacer algo por ellos.
+    </p>
+
+
+    <div class="portal-columnas">
+
+        <!-- ANIMAL DESTACADO -->
+
+        <div class="portal-caja animal-destacado">
+
+            <div class="portal-sticker">
+                ⭐ DESTACADO ⭐
+            </div>
+
+            <h3>🐶 Animal que necesita ayuda</h3>
+
+            <div class="portal-animal-imagen">
+                🐾
+            </div>
+
+            <p>
+                Encuentra un caso cerca de ti
+                y descubre cómo puedes ayudar.
+            </p>
+
+            <button
+                onclick="document.getElementById('calle')?.scrollIntoView({behavior:'smooth'})">
+                🔎 VER CASOS
+            </button>
+
+        </div>
+
+
+        <!-- QUIERO AYUDAR -->
+
+        <div class="portal-caja ayuda-destacada">
+
+            <div class="portal-sticker">
+                💚 ¡TÚ PUEDES AYUDAR!
+            </div>
+
+            <h3>¿Qué puedes hacer?</h3>
+
+            <ul>
+                <li>🍖 Dar alimento</li>
+                <li>🏥 Ayudar con veterinario</li>
+                <li>🚗 Ofrecer transporte</li>
+                <li>🏠 Dar hogar temporal</li>
+            </ul>
+
+            <button
+                onclick="document.getElementById('formas-ayuda')?.scrollIntoView({behavior:'smooth'})">
+                💚 QUIERO AYUDAR
+            </button>
+
+        </div>
+
+
+        <!-- REFUGIOS -->
+
+        <div class="portal-caja refugio-destacado">
+
+            <div class="portal-sticker">
+                🏠 REFUGIOS
+            </div>
+
+            <h3>¿Buscas un lugar seguro?</h3>
+
+            <p>
+                Encuentra refugios y organizaciones
+                que pueden ayudar a los animales.
+            </p>
+
+            <button
+                onclick="document.getElementById('refugios')?.scrollIntoView({behavior:'smooth'})">
+                🏠 VER REFUGIOS
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ================= ESTADÍSTICAS ================= -->
